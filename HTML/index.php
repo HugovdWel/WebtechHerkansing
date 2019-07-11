@@ -1,7 +1,9 @@
 <?php 
-  include 'Partials/head.html'; 
+  include 'Partials/head.php'; 
 ?>
 
-<body>
-  <p class="tekstkleur">ARGGGGGGGGGGGGgg
-</body>
+
+<p class="headerColorTheme">ARGGGGGGGGGGGGgg
+<?php 
+  include 'Partials/pageEnd.php'; 
+?>

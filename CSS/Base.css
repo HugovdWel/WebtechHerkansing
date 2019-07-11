@@ -1,6 +1,18 @@
-.basisKleur{
-
+body{
+    margin: 0;
+    padding: 0;
 }
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
 .tekstkleur{
     color: #FFAD4F;
+}
+
+.headerColorTheme{
+    Background-color: #FFAD4F;
+    color: #FFFFFF;
 }
