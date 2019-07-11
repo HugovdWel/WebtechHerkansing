@@ -1,5 +1,5 @@
 <?php 
-  include '/Partials/head.html'; 
+  include 'Partials/head.html'; 
 ?>
 
 <body>
