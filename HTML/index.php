@@ -3,5 +3,5 @@
 ?>
 
 <body>
-  ARGGGGGGGGGGGGgg
+  <p class="tekstkleur">ARGGGGGGGGGGGGgg
 </body>
