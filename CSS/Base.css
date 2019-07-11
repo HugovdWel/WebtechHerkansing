@@ -8,11 +8,11 @@ p{
     padding: 0;
 }
 
-.tekstkleur{
-    color: #FFAD4F;
-}
-
-.headerColorTheme{
+.standardColors{
     Background-color: #FFAD4F;
     color: #FFFFFF;
+}
+
+.header{
+    
 }

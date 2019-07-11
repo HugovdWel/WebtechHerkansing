@@ -1,9 +1,10 @@
 <?php 
   include 'Partials/head.php'; 
+  include 'Partials/header.php'; 
 ?>
 
 
-<p class="headerColorTheme">ARGGGGGGGGGGGGgg
+
 <?php 
   include 'Partials/pageEnd.php'; 
 ?>
