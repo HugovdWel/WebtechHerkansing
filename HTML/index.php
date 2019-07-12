@@ -6,5 +6,6 @@
 
 
 <?php 
+  include 'Partials/footer.php';
   include 'Partials/pageEnd.php'; 
 ?>
