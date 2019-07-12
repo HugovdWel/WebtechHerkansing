@@ -9,6 +9,6 @@
         <h1>EendenVrienden.nl</h1>
     </div>
     <div class="flex_item header-item">
-        nee
+        Log in of ga dood
     </div>
 </div>
