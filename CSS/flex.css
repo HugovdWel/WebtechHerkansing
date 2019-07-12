@@ -1,0 +1,21 @@
+.flex_Box{
+    flex-wrap: wrap;
+    flex-direction: row
+}
+
+.flex_item{
+    max-width: 20%;
+}
+
+.flex_justify-left{
+    justify-content: flex-start;
+}
+.flex_justify-center{
+    justify-content: center;
+}
+.flex_justify-right{
+    justify-content: flex-end;  
+}
+.flex_justify-stretch{
+    justify-content: space-between;  
+}
