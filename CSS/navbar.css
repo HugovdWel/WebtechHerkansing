@@ -1,4 +1,21 @@
 .navbar-style{
-    Background-color: #FFFFFF;
-    color: #666666;
+    padding: 5px;
+    width: 100%;
+}
+
+.navbar-item-style{
+    width: 200px;
+}
+
+.navbar a:link{
+    color: yellow;
+}
+.navbar a:visited{
+    color: yellow;
+}
+.navbar a:active{
+    color: yellow;
+}
+.navbar a:hover{
+    color: yellow;
 }
