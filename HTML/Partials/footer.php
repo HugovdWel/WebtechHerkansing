@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../CSS/footer.css">
+<link rel="stylesheet" href="../../CSS/footer.css">
 <div class="footer standardStyle flex_box flex_justify-stretch">
     <div class="flex_item addPadding">
         Heb je klachten? stop ze in je gat u bitch.
