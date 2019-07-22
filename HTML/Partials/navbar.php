@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../CSS/navbar.css">
+<link rel="stylesheet" href="../../CSS/navbar.css">
 <div class="navbar-style alternativeStyle flex_box flex_justify-center">
 
      <a href="" class="flex_item addPadding navbar-item-style">
