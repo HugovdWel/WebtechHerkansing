@@ -3,6 +3,10 @@
   include 'Partials/header.php'; 
 ?>
 
+<?php 
+  include 'Partials/navbar.php'; 
+
+?>
 
 
 <?php 
