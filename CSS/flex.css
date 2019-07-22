@@ -21,6 +21,7 @@
 
 .flex_item{
     width: 33%;
+    min-width: 200px;
 }
 
 .flex_justify-left{
