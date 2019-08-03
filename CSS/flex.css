@@ -6,6 +6,7 @@
 
 .flex_item{
     min-width: 200px;
+    max-width: 1000px;
 }
 
 .flex_justify-left{
