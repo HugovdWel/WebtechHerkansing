@@ -17,6 +17,11 @@ body {
     font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
+h1{
+    text-align: center;
+    align-self: center;
+}
+
 p{
     margin: 0;
     padding: 0;
