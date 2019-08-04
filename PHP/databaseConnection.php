@@ -3,12 +3,17 @@ $servername = "localhost";
 $username = "username";
 $password = "password";
 
-// Create connection
-$server = new mysqli($servername, $username, $password);
 
-// Check connection
-if ($server->connect_error) {
-    die("Connection failed: " . $server->connect_error);
-} 
-echo "Connected successfully";
+function createDatabaseConnection(){
+    
+    global $servername, $username, $password;
+
+    try{
+        $server = new mysqli($servername, $username, $password);
+    } catch(PDOExeption $e){
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    }
+}
+
+
 ?>
