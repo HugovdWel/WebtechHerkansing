@@ -41,7 +41,7 @@ constraint FK_FORUMPOST_GEBRUIKERSNAAM FOREIGN KEY (username) REFERENCES Users (
 create table Comments(
 username	varchar(50)		not null,
 comment		varchar(255)	not null,
-post_id		numeric(12)		not null identity(1,1),
+post_id		numeric(12)		not null,
 comment_id  numeric(12)		not null identity(1,1),
 [date]		date			not null,
 constraint PK_COMMENTS primary key (comment_id),
@@ -58,8 +58,8 @@ values ('hugo', 'Schattig eenden', 'www.koekje.nl', 'moet je kijken')
 insert into Recipes
 values ('hugo', 'gefrituurde eend', '123.jpg', 'pakt een eend uit de vijver en stop hem in de frituur')
 
-insert into ForumPost
-values ('hugo', 'eenden zijn lekker', 'If you know what i mean', '2019-8-4', 1)
+insert into ForumPost(username, postname,post,[date])
+values ('hugo', 'eenden zijn lekker', 'If you know what i mean', '2019-8-4')
 
-insert into Comments
-values ('hugo', 'true', 1, 1, '2019-8-4')
+insert into Comments(username, comment, post_id, [date])
+values ('hugo', 'true', 1, '2019-8-4')
