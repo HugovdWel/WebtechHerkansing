@@ -59,3 +59,7 @@ insert into Recipes
 values ('hugo', 'gefrituurde eend', '123.jpg', 'pakt een eend uit de vijver en stop hem in de frituur')
 
 insert into ForumPost
+values ('hugo', 'eenden zijn lekker', 'If you know what i mean', '2019-8-4', 1)
+
+insert into Comments
+values ('hugo', 'true', 1, 1, '2019-8-4')
