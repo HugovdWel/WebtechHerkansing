@@ -1,7 +1,7 @@
 use master
-drop database Eendenvrienden
-create database Eendenvrienden
-use Eendenvrienden
+drop database eendenvrienden
+create database eendenvrienden
+use eendenvrienden
 
 create table Users(
 username	varchar(50)	not null,
