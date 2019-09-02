@@ -1,28 +1,24 @@
 <?php
-$dbhost     = "localhost";
-$dbname     = "Eendenvrienden";
-$dbuser     = "root";
-$dbpass     = "";
-
-                                                                                echo" Ik wordt geladen ";
+$dbhost     = "(local)";
+$dbname     = "eendenvrienden";
+$dbuser     = "databaseConnection";
+$dbpass     = "4fpsFTW";
 
 createDatabaseConnection();
 
 function createDatabaseConnection(){
 
     global $dbhost, $dbname, $dbuser, $dbpass;
-                                                                                echo" Ik run ";
-    try{
-        $connection = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
-    } catch(PDOExeption $e){
-        throw new \PDOException($e->getMessage(), (int)$e->getCode());
-                                                                                echo" Ik crash ";
-    }
+
+    $connection = new PDO("sqlsrv:Server=$dbhost;Database=$dbname;ConnectionPooling=0","$dbuser","$dbpass");
+
 }
 
-// $quary = sprintf("select * from forumpost");
-// $result = mysql_query($query);
-var_dump($result);
+$sql = ("select * from forumpost");
+$preparedQuary = $dbh->prepare($query);
+$preparedQuary->execute(
+    array( ':cijfer' => $cijfer, 	':vak' => $vak	));
+var_dump($preparedQuary);
 // echo $result[0];
 
 
