@@ -4,62 +4,67 @@ create database eendenvrienden
 use eendenvrienden
 
 create table Users(
-username	varchar(50)	not null,
-[password]	varchar(50) not null,
-email		varchar(50) not null,
-constraint PK_USERS primary key (username)
+userId			numeric(6)		not null,
+username		varchar(50)		not null,
+[password]		varchar(50)		not null,
+email			varchar(50)		not null,
+constraint PK_USERID primary key (userId),
 )
 
 create table Video(
-username		varchar(50)		not null,
+videoId			numeric(6)		not null,
+userId			numeric(6)		not null,
 [name]			varchar(50)		not null,
 link			varchar(255)	not null,
 [description]	varchar(255)	not null,
-constraint PK_VIDEO primary key (username, link),
-constraint FK_VIDEO_GEBRUIKERSNAAM FOREIGN KEY (username) REFERENCES Users (username)
+constraint PK_VIDEO primary key (videoId),
+constraint FK_VIDEO_GEBRUIKERSID FOREIGN KEY (userId) REFERENCES Users (userId)
 )
 
 create table Recipes(
-username		varchar(50)		not null,
+recipeId		numeric(6)		not null,
+userId			numeric(6)		not null,
 [name]			varchar(50)		not null,
 picture			varchar(255)	not null,
 [description]	varchar(255)	not null,
-constraint PK_RECIPES primary key ([name], username),
-constraint FK_RECIPES_GEBRUIKERSNAAM FOREIGN KEY (username) REFERENCES Users (username)
+constraint PK_RECIPES primary key (recipeId),
+constraint FK_RECIPES_GEBRUIKERSID FOREIGN KEY (userId) REFERENCES Users (userId)
 )
 
 create table ForumPost(
-username	varchar(50)		not null,
-postname	varchar(50)		not null,
-post		varchar(255)	not null,
-[date]		date			not null,
-post_id		numeric(12)		not null identity(1,1),
+post_id			numeric(12)		not null	identity(1,1),
+userId			numeric(6)		not null,
+postname		varchar(50)		not null,
+post			varchar(255)	not null,
+[date]			date			not null,
 constraint PK_FORUMPOST primary key (post_id),
-constraint FK_FORUMPOST_GEBRUIKERSNAAM FOREIGN KEY (username) REFERENCES Users (username)
+constraint FK_FORUMPOST_GEBRUIKERSNAAM FOREIGN KEY (userId) REFERENCES Users (userId)
 )
 
+
 create table Comments(
-username	varchar(50)		not null,
-comment		varchar(255)	not null,
-post_id		numeric(12)		not null,
-comment_id  numeric(12)		not null identity(1,1),
-[date]		date			not null,
+post_id			numeric(12)		not null,
+comment_id		numeric(12)		not null	identity(1,1),
+userId			numeric(6)		not null,
+comment			varchar(255)	not null,
+[date]			date			not null,
 constraint PK_COMMENTS primary key (comment_id),
-constraint FK_COMMENTS_GEBRUIKERSNAAM FOREIGN KEY (username) REFERENCES Users (username),
+constraint FK_COMMENTS_GEBRUIKERSNAAM FOREIGN KEY (userId) REFERENCES Users (userId),
 constraint FK_COMMENTS_POST_ID FOREIGN KEY (post_id) REFERENCES ForumPost (post_id)
 )
 -----------------------------------------------------------------------------------------
 insert into Users
-values ('hugo','qwerty123', 'nvt')
+values ('000001','hugo','qwerty123', 'nvt')
 
 insert into Video
-values ('hugo', 'Schattig eenden', 'www.koekje.nl', 'moet je kijken')
+values ('000001','000001', 'Schattig eenden', 'www.koekje.nl', 'moet je kijken')
 
 insert into Recipes
-values ('hugo', 'gefrituurde eend', '123.jpg', 'pakt een eend uit de vijver en stop hem in de frituur')
+values ('000001','000001', 'gefrituurde eend', '123.jpg', 'pakt een eend uit de vijver en stop hem in de frituur')
 
-insert into ForumPost(username, postname,post,[date])
-values ('hugo', 'eenden zijn lekker', 'If you know what i mean', '2019-8-4')
+insert into ForumPost(post_id, userId, postname, post, [date])
+values ('000001','000001', 'eenden zijn lekker', 'If you know what i mean', '2019-8-4')
 
 insert into Comments(username, comment, post_id, [date])
-values ('hugo', 'true', 1, '2019-8-4')
+values ('000001','000001', 'true', 1, '2019-8-4')
+
