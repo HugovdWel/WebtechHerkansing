@@ -16,8 +16,8 @@ function createDatabaseConnection(){
 
 function haalGebruikersData($gebruikersId){
     global $connection;
-    $sql = ("select * from Users");
-    $preparedQuary = $connection->prepare($sql);
+    $sql = ("SELECT * from Users WHERE userNumber = (:gebruikersId)");
+    $preparedQuary = $connection->prepare($gebruikersId);
 
     $preparedQuary->execute();
     $data = $preparedQuary->fetchAll();
