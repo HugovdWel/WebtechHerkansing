@@ -12,13 +12,17 @@ function createDatabaseConnection(){
 
     $connection = new PDO("sqlsrv:Server=$dbhost;Database=$dbname;ConnectionPooling=0","$dbuser","$dbpass");
 
+    $sql = ("select * from Users");
+    $preparedQuary = $connection->prepare($sql);
+
+    $preparedQuary->execute();
+    $data = $preparedQuary->fetch();
+    var_dump($data);
+    echo("<br></br>");
+    echo($data[1]);
 }
 
-$sql = ("select * from forumpost");
-$preparedQuary = $dbh->prepare($query);
-$preparedQuary->execute(
-    array( ':cijfer' => $cijfer, 	':vak' => $vak	));
-var_dump($preparedQuary);
+
 // echo $result[0];
 
 
