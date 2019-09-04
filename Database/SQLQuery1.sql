@@ -14,7 +14,7 @@ constraint PK_USERID primary key (userId),
 create table Video(
 videoId			numeric(6)		not null,
 userId			numeric(6)		not null,
-[name]			varchar(50)		not null,
+title			varchar(50)		not null,
 link			varchar(255)	not null,
 [description]	varchar(255)	not null,
 constraint PK_VIDEO primary key (videoId),
@@ -24,7 +24,7 @@ constraint FK_VIDEO_GEBRUIKERSID FOREIGN KEY (userId) REFERENCES Users (userId)
 create table Recipes(
 recipeId		numeric(6)		not null,
 userId			numeric(6)		not null,
-[name]			varchar(50)		not null,
+title			varchar(50)		not null,
 picture			varchar(255)	not null,
 [description]	varchar(255)	not null,
 constraint PK_RECIPES primary key (recipeId),
@@ -34,8 +34,7 @@ constraint FK_RECIPES_GEBRUIKERSID FOREIGN KEY (userId) REFERENCES Users (userId
 create table ForumPost(
 post_id			numeric(12)		not null	identity(1,1),
 userId			numeric(6)		not null,
-postname		varchar(50)		not null,
-post			varchar(255)	not null,
+content			varchar(255)	not null,
 [date]			date			not null,
 constraint PK_FORUMPOST primary key (post_id),
 constraint FK_FORUMPOST_GEBRUIKERSNAAM FOREIGN KEY (userId) REFERENCES Users (userId)
