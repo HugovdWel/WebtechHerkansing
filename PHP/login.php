@@ -1,9 +1,8 @@
 <?php
 
-if(isset($server)){
+if(isset($_SESSION['username'])){
 
 } else{
-    include '../databaseConnection.php';
 }
 
 
