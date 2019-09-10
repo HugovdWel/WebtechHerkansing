@@ -23,9 +23,8 @@ constraint FK_PICTURE_USERNAME FOREIGN KEY (username) REFERENCES Users (username
 )
 
 create table Video(
-videoId			numeric(6)		not null,
-userId			numeric(6)		not null,
-title			varchar(50)		not null,
+username		varchar(50)		not null,
+[name]			varchar(50)		not null,
 link			varchar(255)	not null,
 [description]	varchar(255)	not null,
 video_id		numeric(12)		not null identity(1,1)
@@ -47,23 +46,23 @@ constraint FK_RECIPES_USERNAME FOREIGN KEY (username) REFERENCES Users (username
 )
 
 create table ForumPost(
-post_id			numeric(12)		not null	identity(1,1),
-userId			numeric(6)		not null,
-content			varchar(255)	not null,
-[date]			date			not null,
+username	varchar(50)		not null,
+postname	varchar(50)		not null,
+post		varchar(255)	not null,
+[date]		date			not null,
+post_id		numeric(12)		not null identity(1,1),
 constraint PK_FORUMPOST primary key (post_id),
 constraint FK_FORUMPOST_USERNAME FOREIGN KEY (username) REFERENCES Users (username)
 		on delete cascade
 		on update cascade
 )
 
-
 create table Comments(
-post_id			numeric(12)		not null,
-comment_id		numeric(12)		not null	identity(1,1),
-userId			numeric(6)		not null,
-comment			varchar(255)	not null,
-[date]			date			not null,
+username	varchar(50)		not null,
+comment		varchar(255)	not null,
+post_id		numeric(12)		not null,
+comment_id  numeric(12)		not null identity(1,1),
+[date]		date			not null,
 constraint PK_COMMENTS primary key (comment_id),
 constraint FK_COMMENTS_USERNAME FOREIGN KEY (username) REFERENCES Users (username),
 constraint FK_COMMENTS_POST_ID FOREIGN KEY (post_id) REFERENCES ForumPost (post_id)
@@ -75,23 +74,23 @@ constraint FK_COMMENTS_POST_ID FOREIGN KEY (post_id) REFERENCES ForumPost (post_
 -----------------------------------------------------------------------------------------
 insert into Users(username, [password], email)
 values  ('hugo','qwerty123', 'nvt'),
-		('daniï¿½l','qwerty1234', 'nvt')
+		('daniël','qwerty1234', 'nvt')
 insert into Picture(username, [name], [file_name])
 values	('hugo', 'cute', 'lol.jpg'),
-		('daniï¿½l', 'fun', 'jk.jpg')
+		('daniël', 'fun', 'jk.jpg')
 
 insert into Video(username, [name], link, [description])
 values  ('hugo', 'Schattig eenden', 'www.koekje.nl', 'moet je kijken'),
-		('daniï¿½l', 'Beste eend', 'www.biscuit.nl', 'moet je kijken!')
+		('daniël', 'Beste eend', 'www.biscuit.nl', 'moet je kijken!')
 
 insert into Recipes
 values  ('hugo', 'gefrituurde eend', '123.jpg', 'pakt een eend uit de vijver en stop hem in de frituur'),
-		('daniï¿½l', 'eenden souflï¿½', '123.jpg', 'pakt een eend uit de vijver en gooit hem in de pan')
+		('daniël', 'eenden souflé', '123.jpg', 'pakt een eend uit de vijver en gooit hem in de pan')
 
 insert into ForumPost(username, postname,post,[date])
 values	('hugo', 'eenden zijn lekker', 'If you know what i mean', '2019-8-4'),
-		('daniï¿½l', 'vote kick hugo', 'beetje ongepast', '2019-8-4')
+		('daniël', 'vote kick hugo', 'beetje ongepast', '2019-8-4')
 
 insert into Comments(username, comment, post_id, [date])
 values  ('hugo', 'true', 1, '2019-8-4'),
-		('daniï¿½l', 'gast', 1, '2019-8-4')
+		('daniël', 'gast', 1, '2019-8-4')
