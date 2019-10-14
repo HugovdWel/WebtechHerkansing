@@ -4,6 +4,12 @@
   include '../Partials/navbar.php'; 
 ?>
 
+<?php 
+  include '../../PHP/databaseConnection.php';
+  haalPersoonsGegevens()
+  foreach 
+?>
+
 
 
 <?php 

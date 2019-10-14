@@ -1,7 +1,7 @@
 <?php
 
 createDatabaseConnection();
-haalGebruikersData(1);
+retrieveUserData(1);
 
 function createDatabaseConnection(){
 
@@ -14,7 +14,7 @@ function createDatabaseConnection(){
     $connection = new PDO("sqlsrv:Server=$dbhost;Database=$dbname;ConnectionPooling=0","$dbuser","$dbpass");
 }
 
-function haalGebruikersData($gebruikersId){
+function retrieveUserData($gebruikersId){
     global $connection;
     $sql = ("SELECT * from Users WHERE userNumber = (:gebruikersId)");
     $preparedQuary = $connection->prepare($gebruikersId);
@@ -28,9 +28,22 @@ function haalGebruikersData($gebruikersId){
     echo($data[1][0]);
 }
 
-function haalPersoonsGegevens($gebruikersId){
 
+function retrieveForumPage($page){
+    $loadedPosts = ($page * 20);
+    global $connection;
+    $sql = ("SELECT * from Users WHERE userNumber = (:gebruikersId)");
+    $preparedQuary = $connection->prepare($loadedPosts);
+
+    $preparedQuary->execute();
+    $data = $preparedQuary->fetchAll();
+    var_dump($data);
+    echo("<br></br>");
+    echo($data[0][0]);
+    echo("<br></br>");
+    echo($data[1][0]);
 }
+
 
 
 // echo $result[0];
