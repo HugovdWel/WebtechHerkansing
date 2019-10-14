@@ -17,7 +17,7 @@ create table Picture(
 [file_name]		varchar(50)		not null,
 picture_id		numeric(12)		not null identity(1,1)
 constraint PK_PICTURE primary key (picture_id)
-constraint FK_PICTURE_USERNAME FOREIGN KEY ([user_id]) REFERENCES Users ([user_id])
+constraint FK_PICTURE_USER_ID FOREIGN KEY ([user_id]) REFERENCES Users ([user_id])
 		on delete cascade
 		on update cascade
 )
@@ -53,7 +53,7 @@ post		varchar(255)	not null,
 [date]		date			not null,
 post_id		numeric(12)		not null identity(1,1),
 constraint PK_FORUMPOST primary key (post_id),
-constraint FK_FORUMPOST_USERNAME FOREIGN KEY ([user_id]) REFERENCES Users ([user_id])
+constraint FK_FORUMPOST_USER_ID FOREIGN KEY ([user_id]) REFERENCES Users ([user_id])
 		on delete cascade
 		on update cascade
 )
@@ -65,7 +65,7 @@ post_id		numeric(12)		not null,
 comment_id  numeric(12)		not null identity(1,1),
 [date]		date			not null,
 constraint PK_COMMENTS primary key (comment_id),
-constraint FK_COMMENTS_USERNAME FOREIGN KEY ([user_id]) REFERENCES Users ([user_id]),
+constraint FK_COMMENTS_USER_ID FOREIGN KEY ([user_id]) REFERENCES Users ([user_id]),
 constraint FK_COMMENTS_POST_ID FOREIGN KEY (post_id) REFERENCES ForumPost (post_id)
 		on delete cascade
 		on update cascade
