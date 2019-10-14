@@ -36,12 +36,7 @@ function retrieveForumPage($page){
     $preparedQuary = $connection->prepare($loadedPosts);
 
     $preparedQuary->execute();
-    $data = $preparedQuary->fetchAll();
-    var_dump($data);
-    echo("<br></br>");
-    echo($data[0][0]);
-    echo("<br></br>");
-    echo($data[1][0]);
+    global $forumData = $preparedQuary->fetchAll();
 }
 
 

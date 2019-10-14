@@ -6,9 +6,13 @@
 
 <?php 
   include '../../PHP/databaseConnection.php';
-  haalPersoonsGegevens()
-  foreach 
+  retrieveForumPage(0);
+  global $forumdata;
+  foreach($post as $forumdata){
+
+  }
 ?>
+
 
 
 
