@@ -1,7 +1,7 @@
 <?php
 
 createDatabaseConnection();
-retrieveUserData(1);
+/*retrieveUserData(1);*/
 
 function createDatabaseConnection(){
 
@@ -36,12 +36,13 @@ function retrieveForumPage($page){
     $preparedQuary = $connection->prepare($loadedPosts);
 
     $preparedQuary->execute();
-    global $forumData = $preparedQuary->fetchAll();
+    $forumData = $preparedQuary->fetchAll();
+    global $forumData;
 }
 
 
 
-// echo $result[0];
+
 
 
 ?>
