@@ -4,6 +4,17 @@
     flex-direction: row;
 }
 
+.flex_direction-row{
+    flex-direction: row;
+}
+.flex_direction-column{
+    flex-direction: column;
+}
+
+.limit-size{
+    max-width: 80%;
+}
+
 .flex_item{
     width: 33%;
     min-width: 200px;

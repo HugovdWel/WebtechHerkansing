@@ -15,6 +15,7 @@ body {
     padding-bottom: 6rem;
     min-height: 100%;
     font-family: "Helvetica Neue", Arial, sans-serif;
+    background: rgba(182, 255, 251, 0.274);
 }
 
 p{
@@ -30,7 +31,7 @@ p{
 
 .alternativeStyle{
     Background-color: #f5f5f5;
-    color: #75787d;
+    color: #6b6c6d;
 }
 
 .buttonStyle{
