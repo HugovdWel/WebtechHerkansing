@@ -3,6 +3,7 @@
   include '../Partials/header.php'; 
   include '../Partials/navbar.php'; 
 ?>
+<link rel="stylesheet" href="../../CSS/forum.css">
 
 <?php 
   include '../../PHP/databaseConnection.php';
@@ -11,11 +12,13 @@
   foreach($post as $forumdata){
 */
 ?>
-<div class="standardStyle flex_box flex_justify-stretch limit-size">
-<div class="standardStyle flex_box flex_justify-stretch limit-size">
-  <div class="forumPostListing flex_item flex_justify-center">
-    tekst
+<div class="flex_box flex_justify-center">
+  <div class="limit-size limit-min-size flex_item flex_justify-center standardStyle flex_box flex_justify-center ">
 
+    <div class="forumPostListing flex_item flex_justify-center forum-listing">
+      tekst<br>woord<br>sahbdbw<br>asd
+    </div>
+    
   </div>
 </div>
 

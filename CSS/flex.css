@@ -15,9 +15,12 @@
     max-width: 80%;
 }
 
+.limit-min-size{
+    min-width: 80%;
+}
+
 .flex_item{
     width: 33%;
-    min-width: 200px;
 }
 
 .flex_justify-left{
@@ -41,4 +44,5 @@
     .flex_item{
         width: 100%;
     }
+    
 }
