@@ -8,7 +8,8 @@
 <?php 
   include '../../PHP/databaseConnection.php';
   $forumdata = NULL;
-  retrieveForumPage(1);/*
+  retrieveForumPage(1);
+  retrieveUserData(1);/*
   echo $forumdata[0];
   var_dump($forumdata);*/
   /*

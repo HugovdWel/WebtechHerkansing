@@ -17,7 +17,6 @@ function retrieveUserData($gebruikersId){
     global $connection;
     $sql = ("SELECT * from Users WHERE [user_id] = (:gebruikersId)");
     $preparedQuary = $connection->prepare($sql);
-    
     $preparedQuary->execute(array(':gebruikersId' => $gebruikersId));
     $data = $preparedQuary->fetchAll();/*
     var_dump($data);
@@ -27,16 +26,11 @@ function retrieveUserData($gebruikersId){
     echo($data[0]['username']);*/
 }
 
-
 function retrieveForumPage($page){
     global $connection;
     $loadedPosts = (($page * 20) - 20);
     $loadingPosts = ($page * 20);
-    $sql = ("SELECT TOP (:loadingPosts) *
-            FROM ForumPost
-            EXCEPT
-            SELECT TOP (:loadedPosts) *
-            FROM ForumPost");
+    $sql = ("SELECT TOP (20) * FROM ForumPost EXCEPT (SELECT TOP (0) * FROM ForumPost)");
     $preparedQuary = $connection->prepare($sql);
     $preparedQuary->execute(array(':loadingPosts' => $loadingPosts, ':loadedPosts' => $loadedPosts));
     $forumData = $preparedQuary->fetchAll();
