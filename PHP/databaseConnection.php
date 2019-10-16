@@ -18,12 +18,7 @@ function retrieveUserData($gebruikersId){
     $sql = ("SELECT * from Users WHERE [user_id] = (:gebruikersId)");
     $preparedQuary = $connection->prepare($sql);
     $preparedQuary->execute(array(':gebruikersId' => $gebruikersId));
-    $data = $preparedQuary->fetchAll();/*
-    var_dump($data);
-    echo("<br></br>");
-    echo($data[0][0]);
-    echo("<br></br>");
-    echo($data[0]['username']);*/
+    $data = $preparedQuary->fetchAll();
 }
 
 function retrieveForumPage($page){
