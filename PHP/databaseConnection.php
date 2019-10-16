@@ -1,7 +1,6 @@
 <?php
 
 createDatabaseConnection();
-/*retrieveUserData(1);*/
 
 function createDatabaseConnection(){
 
@@ -16,33 +15,32 @@ function createDatabaseConnection(){
 
 function retrieveUserData($gebruikersId){
     global $connection;
-    $sql = ("SELECT * from Users WHERE userNumber = (:gebruikersId)");
-    $preparedQuary = $connection->prepare($gebruikersId);
-
-    $preparedQuary->execute();
-    $data = $preparedQuary->fetchAll();
+    $sql = ("SELECT * from Users WHERE [user_id] = (:gebruikersId)");
+    $preparedQuary = $connection->prepare($sql);
+    
+    $preparedQuary->execute(array(':gebruikersId' => $gebruikersId));
+    $data = $preparedQuary->fetchAll();/*
     var_dump($data);
     echo("<br></br>");
     echo($data[0][0]);
     echo("<br></br>");
-    echo($data[1][0]);
+    echo($data[0]['username']);*/
 }
 
 
 function retrieveForumPage($page){
+    global $connection;
     $loadedPosts = (($page * 20) - 20);
     $loadingPosts = ($page * 20);
-    global $connection;
-    var_dump($connection);
     $sql = ("SELECT TOP (:loadingPosts) *
-            from ForumPost
-            except
+            FROM ForumPost
+            EXCEPT
             SELECT TOP (:loadedPosts) *
-            from ForumPost");
+            FROM ForumPost");
     $preparedQuary = $connection->prepare($sql);
-
     $preparedQuary->execute(array(':loadingPosts' => $loadingPosts, ':loadedPosts' => $loadedPosts));
     $forumData = $preparedQuary->fetchAll();
+    var_dump($forumData);
     return $forumData;
 }
 

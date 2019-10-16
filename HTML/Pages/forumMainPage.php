@@ -8,11 +8,9 @@
 <?php 
   include '../../PHP/databaseConnection.php';
   $forumdata = NULL;
-  retrieveForumPage(1);
-  echo'data incomming <br>';
+  retrieveForumPage(1);/*
   echo $forumdata[0];
-  var_dump($forumdata);
-  
+  var_dump($forumdata);*/
   /*
   foreach($post as $forumdata){
 */
