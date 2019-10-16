@@ -30,14 +30,20 @@ function retrieveUserData($gebruikersId){
 
 
 function retrieveForumPage($page){
-    $loadedPosts = ($page * 20);
+    $loadedPosts = (($page * 20) - 20);
+    $loadingPosts = ($page * 20);
     global $connection;
-    $sql = ("SELECT * from Users WHERE userNumber = (:gebruikersId)");
-    $preparedQuary = $connection->prepare($loadedPosts);
+    var_dump($connection);
+    $sql = ("SELECT TOP (:loadingPosts) *
+            from ForumPost
+            except
+            SELECT TOP (:loadedPosts) *
+            from ForumPost");
+    $preparedQuary = $connection->prepare($sql);
 
-    $preparedQuary->execute();
+    $preparedQuary->execute(array(':loadingPosts' => $loadingPosts, ':loadedPosts' => $loadedPosts));
     $forumData = $preparedQuary->fetchAll();
-    global $forumData;
+    return $forumData;
 }
 
 

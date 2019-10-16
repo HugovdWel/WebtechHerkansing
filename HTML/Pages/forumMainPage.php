@@ -7,8 +7,13 @@
 
 <?php 
   include '../../PHP/databaseConnection.php';
-  retrieveForumPage(0);
-  global $forumdata;/*
+  $forumdata = NULL;
+  retrieveForumPage(1);
+  echo'data incomming <br>';
+  echo $forumdata[0];
+  var_dump($forumdata);
+  
+  /*
   foreach($post as $forumdata){
 */
 ?>
