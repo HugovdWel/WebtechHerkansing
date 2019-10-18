@@ -19,6 +19,7 @@ function retrieveUserData($gebruikersId){
     $preparedQuary = $connection->prepare($sql);
     $preparedQuary->execute(array(':gebruikersId' => $gebruikersId));
     $data = $preparedQuary->fetchAll();
+    var_dump($data);
 }
 
 function retrieveForumPage($page){
