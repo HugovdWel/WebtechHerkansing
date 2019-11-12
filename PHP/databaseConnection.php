@@ -22,15 +22,20 @@ function retrieveUserData($gebruikersId){
     var_dump($data);
 }
 
-function retrieveForumPage($page){
+function retrieveForumPage($page, $postsPerPage){
     global $connection;
-    $loadedPosts = (($page * 20) - 20);
-    $loadingPosts = ($page * 20);
-    $sql = ("SELECT TOP (20) * FROM ForumPost EXCEPT (SELECT TOP (0) * FROM ForumPost)");
+
+    $loadedPosts = ($page * $postsPerPage);
+    $loadingPosts = ($page * $postsPerPage + $postsPerPage);
+    //echo $loadedPosts; echo $loadingPosts;
+    
+    $sql = ("SELECT TOP (:loadingPosts) * FROM ForumPost EXCEPT (SELECT TOP (:loadedPosts) * FROM ForumPost)");
     $preparedQuary = $connection->prepare($sql);
-    $preparedQuary->execute(array(':loadingPosts' => $loadingPosts, ':loadedPosts' => $loadedPosts));
+    $preparedQuary->bindParam(':loadedPosts', $loadedPosts, PDO::PARAM_INT);
+    $preparedQuary->bindParam(':loadingPosts', $loadingPosts, PDO::PARAM_INT);
+    $preparedQuary->execute();
+
     $forumData = $preparedQuary->fetchAll();
-    var_dump($forumData);
     return $forumData;
 }
 

@@ -7,21 +7,26 @@
 
 <?php 
   include '../../PHP/databaseConnection.php';
-  $forumdata = NULL;
-  retrieveForumPage(1);
-  retrieveUserData(1);/*
-  echo $forumdata[0];
-  var_dump($forumdata);*/
-  /*
-  foreach($post as $forumdata){
-*/
+  $forumData = retrieveForumPage(0, 5);
+  //var_dump($forumData);
+
+  foreach($forumData as $post){
+    echo $post["user_id"];
+    
+  }
+
 ?>
 <div class="flex_box flex_justify-center">
   <div class="limit-size limit-min-size flex_item flex_justify-center standardStyle flex_box flex_justify-center ">
-
-    <div class="forumPostListing flex_item flex_justify-center forum-listing">
-      tekst<br>woord<br>sahbdbw<br>asd
-    </div>
+    <?php
+      foreach($forumData as $post){
+        var_dump($post["user_id"]);/*
+        echo'
+        <div class="forumPostListing flex_item flex_justify-center forum-listing">
+          ' + $post[user_id] + '
+        </div>';*/
+      }
+    ?>
     
   </div>
 </div>
@@ -30,4 +35,4 @@
 <?php 
   include '../Partials/footer.php'; 
   include '../Partials/pageEnd.php'; 
-?>
+?> 

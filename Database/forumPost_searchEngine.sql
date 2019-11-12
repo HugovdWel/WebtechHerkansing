@@ -1,7 +1,7 @@
 use eendenvrienden
+SELECT * from ForumPost
 
-SELECT TOP 2 *
+SELECT *
 from ForumPost
-except
-SELECT TOP 1 *
-from ForumPost
+ORDER BY post_id desc
+offset 
