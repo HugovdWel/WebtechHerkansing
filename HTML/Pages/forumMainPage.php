@@ -17,7 +17,7 @@
   if(isset($_GET["paginaNummer"])){
     $paginaNummer = $_GET["paginaNummer"];}
   else{
-    $paginaNummer = '0';
+    $paginaNummer = '1';
   }
   $vorigePagina = $paginaNummer - 1;
   $volgendePagina = $paginaNummer + 1;
@@ -43,9 +43,16 @@
 
   <div class="limit-size limit-min-size flex_item flex_justify-center flex_box flex_justify-center">
     <form action="" method="get">
-      <input type="submit" name="paginaNummer" value="<?php echo $vorigePagina; ?>">
-      <input type="submit" name="paginaNummer" value="<?php echo $paginaNummer; ?>">
-      <input type="submit" name="paginaNummer" value="<?php echo $volgendePagina; ?>">
+      <?php
+        if($vorigePagina > 0){
+          echo '<input type="submit" name="paginaNummer" value="' , $vorigePagina , '">';
+        }
+        echo '<input type="submit" name="paginaNummer" value="' , $paginaNummer , '">';
+        if(count($forumData)>9){
+          echo '<input type="submit" name="paginaNummer" value="' , $volgendePagina , '">';
+        }
+        
+      ?>
     </form>
   </div>
 </div>

@@ -25,8 +25,8 @@ function retrieveUserData($gebruikersId){
 function retrieveForumPage($page, $postsPerPage){
     global $connection;
 
-    $loadedPosts = ($page * $postsPerPage);
-    $loadingPosts = ($page * $postsPerPage + $postsPerPage);
+    $loadedPosts = ($page * $postsPerPage - $postsPerPage);
+    $loadingPosts = ($page * $postsPerPage);
     //echo $loadedPosts; echo $loadingPosts;
     
     $sql = ("SELECT TOP (:loadingPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id EXCEPT (SELECT TOP (:loadedPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id)");
