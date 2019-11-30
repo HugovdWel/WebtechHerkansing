@@ -20,7 +20,6 @@
   <div class="limit-size limit-min-size flex_item flex_justify-center standardStyle flex_box flex_justify-center ">
     <?php
       foreach($forumData as $post){
-        var_dump($post);
         echo'<div class="forumPostListing flex_item flex_justify-center forum-listing">';
         echo $post["postname"];
         echo $post["username"];

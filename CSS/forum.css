@@ -1,4 +1,8 @@
 .forum-listing{
-    min-width: 78%;
+    min-width: 90%;
     padding: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: grey;
+    margin: 10px;
 }
