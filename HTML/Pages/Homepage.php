@@ -2,7 +2,6 @@
 $titel = "eendenvrienden.nl";
 include '../Partials/head.php';
 include '../Partials/header.php';
-session_start();
 ?>
 <body>
 <header>
