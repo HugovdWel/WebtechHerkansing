@@ -23,6 +23,11 @@ h1{
     align-self: center;
 }
 
+h1{
+    text-align: center;
+    align-self: center;
+}
+
 p{
     margin: 0;
     padding: 0;
