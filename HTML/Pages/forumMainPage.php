@@ -13,11 +13,6 @@
     echo $post["user_id"];
   }*/
 
-<section class="forum flex_box">
-    <div id="flex_item">
-        
-    </div>
-
   if(isset($_GET["paginaNummer"])){
     $paginaNummer = $_GET["paginaNummer"];}
   else{
