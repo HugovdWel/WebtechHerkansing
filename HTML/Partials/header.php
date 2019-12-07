@@ -12,3 +12,5 @@
         Log in of ga dood
     </div>
 </div>
+<?php
+session_start();

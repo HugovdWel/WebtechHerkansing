@@ -1,4 +1,26 @@
-.forum-listing{
-    min-width: 78%;
+.forumPostListing{
+    min-width: 90%;
     padding: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: grey;
+    margin: 10px;
+    white-space: nowrap;
+}
+
+.forumContainer{
+    border-radius: 25px;
+    white-space: nowrap;   
+}
+
+.forumContainer p{
+    display: inline-block;
+}
+
+.username{
+    align-self: right;
+}
+
+.align-right{
+    float: right;
 }

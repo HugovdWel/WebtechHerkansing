@@ -1,7 +1,6 @@
 <?php
 
 createDatabaseConnection();
-/*retrieveUserData(1);*/
 
 function createDatabaseConnection(){
 
@@ -16,28 +15,28 @@ function createDatabaseConnection(){
 
 function retrieveUserData($gebruikersId){
     global $connection;
-    $sql = ("SELECT * from Users WHERE userNumber = (:gebruikersId)");
-    $preparedQuary = $connection->prepare($gebruikersId);
-
-    $preparedQuary->execute();
+    $sql = ("SELECT * from Users WHERE [user_id] = (:gebruikersId)");
+    $preparedQuary = $connection->prepare($sql);
+    $preparedQuary->execute(array(':gebruikersId' => $gebruikersId));
     $data = $preparedQuary->fetchAll();
     var_dump($data);
-    echo("<br></br>");
-    echo($data[0][0]);
-    echo("<br></br>");
-    echo($data[1][0]);
 }
 
-
-function retrieveForumPage($page){
-    $loadedPosts = ($page * 20);
+function retrieveForumPage($page, $postsPerPage){
     global $connection;
-    $sql = ("SELECT * from Users WHERE userNumber = (:gebruikersId)");
-    $preparedQuary = $connection->prepare($loadedPosts);
 
+    $loadedPosts = ($page * $postsPerPage - $postsPerPage);
+    $loadingPosts = ($page * $postsPerPage);
+    //echo $loadedPosts; echo $loadingPosts;
+    
+    $sql = ("SELECT TOP (:loadingPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id EXCEPT (SELECT TOP (:loadedPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id)");
+    $preparedQuary = $connection->prepare($sql);
+    $preparedQuary->bindParam(':loadedPosts', $loadedPosts, PDO::PARAM_INT);
+    $preparedQuary->bindParam(':loadingPosts', $loadingPosts, PDO::PARAM_INT);
     $preparedQuary->execute();
+
     $forumData = $preparedQuary->fetchAll();
-    global $forumData;
+    return $forumData;
 }
 
 

@@ -7,4 +7,6 @@ include '../Partials/header.php';
 <header>
     <h1>Eenden en vrienden</h1>
 </header>
+<?php
+
 
