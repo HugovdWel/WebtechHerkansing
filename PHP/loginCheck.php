@@ -1,21 +1,21 @@
 <?PHP
-include '../../PHP/databaseConnection.php';
+session_start();
+include 'databaseConnection.php';
+if(isset($_POST['email'])){
+  global $connection;
+  $sql = ("SELECT password, username FROM Users WHERE email = (:email)");
+  $preparedQuary = $connection->prepare($sql);
+  $preparedQuary->execute(array(':email' => $_POST['email']));
+  $data = $preparedQuary->fetch();
 
-    global $connection;
-    
-    $sql = ("SELECT TOP (:loadingPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id EXCEPT (SELECT TOP (:loadedPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id)");
-    $preparedQuary = $connection->prepare($sql);
-    $preparedQuary->bindParam(':loadedPosts', $loadedPosts, PDO::PARAM_INT);
-    $preparedQuary->bindParam(':loadingPosts', $loadingPosts, PDO::PARAM_INT);
-    $preparedQuary->execute();
-
-    $forumData = $preparedQuary->fetchAll();
-
-    foreach($forumData as $post){
-        echo'<div class="forumPostListing flex_item flex_justify-center">';
-        echo $post["postname"];
-        $post["username"];
-  
-      }
-
+  $checkpassword = $_POST['password'];
+  if(password_verify($checkpassword, $data['password'])){   
+    $_SESSION["User"] = $data['username']; 
+    echo "gelukt";
+    header("Location: ../HTML/Pages/Homepage.php");
+  }
+  else{
+    echo "oeps";
+  }
+}
 ?>

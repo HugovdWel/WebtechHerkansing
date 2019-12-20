@@ -1,6 +1,6 @@
 use master
 GO
-drop database eendenvrienden
+drop database if exists eendenvrienden
 GO
 create database eendenvrienden
 GO
