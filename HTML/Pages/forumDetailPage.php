@@ -7,19 +7,6 @@
 
 <?php 
   include '../../PHP/databaseConnection.php';
-  
-  /*var_dump($forumData);
-  foreach($forumData as $post){
-    echo $post["user_id"];
-  }*/
-
-  if(isset($_GET["paginaNummer"])){
-    $paginaNummer = $_GET["paginaNummer"];}
-  else{
-    $paginaNummer = '1';
-  }
-  $vorigePagina = $paginaNummer - 1;
-  $volgendePagina = $paginaNummer + 1;
 
   $forumData = retrieveForumPage($paginaNummer, 10);
 
