@@ -13,29 +13,21 @@
 
 
   $post_id = $_GET["post_id"];
-  $forumData = retrievePostInfo($post_id);
+  $postData = retrievePostInfo($post_id);
 
-?>
-<div class="flex_box flex_justify-center">
-  <div class="limit-size limit-min-size flex_item flex_justify-center standardStyle flex_box flex_justify-center forumContainer">
-    <?php
+  echo'<h3 class="textAlignCenter breakWord">' . $postData[0]["postname"] . '</h3>';
+  echo'<div class="flex_box flex_justify-center">';
+    echo'<div class="limit-size limit-min-size flex_item flex_justify-center standardStyle flex_box flex_justify-center forumContainer">';
       echo'<div class="forumPostListing flex_item flex_justify-center">';
-      echo'</div>';
-    ?>
-  </div>
-
+      echo $postData[0]["post"];
+    echo'</div>';
+  echo'</div>';
+?>
   <div class="limit-size limit-min-size flex_item flex_justify-center flex_box flex_justify-center">
-    <form action="" method="get">
-      <input type="submit" name="paginaNummer" value="' , $vorigePagina , '">
-
-        <label for="comment">Comment:</label><br />
-        <textarea name="comment" cols="70" rows="10">{comment}</textarea>
-        <label><input type="checkbox" name="save_info" value="yes" {save_info} /> Remember my personal information</label><br />
-        <label><input type="checkbox" name="notify_me" value="yes" {notify_me} /> Notify me of follow-up comments?</label><br />
-
-
-        <input type="submit" name="submit" value="Submit" />
-        <input type="submit" name="preview" value="Preview" />
+    <form action="" method="post">
+      <label for="comment">Laat een bericht achter!:</label><br />
+      <textarea name="comment" cols="70" rows="10" placeholder="Een hilarisch bericht."></textarea>
+      <input type="submit" name="submit" value="Submit" />
 
 
     </form>

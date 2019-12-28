@@ -40,15 +40,17 @@ function retrieveForumPage($page, $postsPerPage){
 }
 function retrievePostInfo($post_id){
     global $connection;
+
+    $post_id = (int)$post_id;
     
-    $sql = ("SELECT * FROM POSTS WHERE post_id = :post_id");
+    $sql = ("SELECT * FROM ForumPost WHERE post_id = :post_id");
     $preparedQuary = $connection->prepare($sql);
     $preparedQuary->bindParam(':post_id', $post_id, PDO::PARAM_INT);
 
     $preparedQuary->execute();
 
-    $forumData = $preparedQuary->fetchAll();
-    return $forumData;
+    $postData = $preparedQuary->fetchAll();
+    return $postData;
 }
 
 

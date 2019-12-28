@@ -60,3 +60,7 @@ p{
     text-align: center;
 
 }
+
+.breakWord{
+    overflow-wrap: break-word;
+}
