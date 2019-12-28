@@ -7,11 +7,6 @@
 
 <?php 
   include '../../PHP/databaseConnection.php';
-  
-  /*var_dump($forumData);
-  foreach($forumData as $post){
-    echo $post["user_id"];
-  }*/
 
   if(isset($_GET["paginaNummer"])){
     $paginaNummer = $_GET["paginaNummer"];}
@@ -26,10 +21,11 @@
 ?>
 <div class="flex_box flex_justify-center">
   <div class="limit-size limit-min-size flex_item flex_justify-center standardStyle flex_box flex_justify-center forumContainer">
+
     <?php
       foreach($forumData as $post){
         echo'<div class="forumPostListing flex_item flex_justify-center">
-        <a href="">';
+        <a href="../pages/forumDetailPage.php?post_id=' . $post["post_id"] . '">';
             echo $post["postname"];
           echo'</a>';
           echo'<p class="align-right">';

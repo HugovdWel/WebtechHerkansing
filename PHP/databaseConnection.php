@@ -38,6 +38,18 @@ function retrieveForumPage($page, $postsPerPage){
     $forumData = $preparedQuary->fetchAll();
     return $forumData;
 }
+function retrievePostInfo($post_id){
+    global $connection;
+    
+    $sql = ("SELECT * FROM POSTS WHERE post_id = :post_id");
+    $preparedQuary = $connection->prepare($sql);
+    $preparedQuary->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+
+    $preparedQuary->execute();
+
+    $forumData = $preparedQuary->fetchAll();
+    return $forumData;
+}
 
 
 
