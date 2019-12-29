@@ -24,14 +24,15 @@
 
     <?php
       foreach($forumData as $post){
-        echo'<div class="forumPostListing flex_item flex_justify-center">
-        <a href="../pages/forumDetailPage.php?post_id=' . $post["post_id"] . '">';
+        echo'<a class="forumPostListing flex_item flex_justify-center" href="../pages/forumDetailPage.php?post_id=' . $post["post_id"] . '">';
+
             echo $post["postname"];
-          echo'</a>';
-          echo'<p class="align-right">';
+
+          echo'<p class="align-right username">';
             echo $post["username"];
           echo'</p>';
-        echo'</div>';
+
+        echo'</a>';
       }
     ?>
   </div>
