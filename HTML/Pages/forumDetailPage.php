@@ -7,9 +7,15 @@
 
 <?php 
   include '../../PHP/databaseConnection.php';
-
-
-
+  if (isset($_POST["placeComment"])){
+    postNewPost($_SESSION["User_id"], $_POST["comment"], $_GET["post_id"]);
+  }
+  session_destroy();
+  session_start();
+  $_SESSION["User_id"] = 1;
+  if(isset($message)){ 
+    echo $message;
+  }
 
 
   $post_id = $_GET["post_id"];
@@ -22,20 +28,21 @@
       echo $postData[0]["post"];
     echo'</div>';
   echo'</div>';
-?>
-  <div class="limit-size limit-min-size flex_item flex_justify-center flex_box flex_justify-center addPadding">
-    <form action="" method="post" class="addPadding">
-      <label for="comment">Laat een bericht achter!:</label><br />
-      <textarea name="comment" cols="70" rows="10" placeholder="Een hilarisch bericht." class="addPadding maxWidth"></textarea>
-      <input type="submit" name="submit" value="Plaats comment" class="buttonStyle maxWidth"/>
+
+  if(isset($_SESSION["User_id"])){
+    
+      echo'<div class="limit-size limit-min-size flex_item flex_justify-center flex_box flex_justify-center addPadding">';
+        echo'<form action="" method="post" class="addPadding">';
+          echo'<label for="comment">Laat een bericht achter!:</label><br/>';
+          echo'<textarea name="comment" cols="70" rows="10" placeholder="Een hilarisch bericht." class="addPadding maxWidth"></textarea>';
+          echo'<input type="submit" name="placeComment" value="Plaats comment" class="buttonStyle maxWidth"/>';
+        echo'</form>';
+      echo'</div>';
+    echo'</div>';
+    
+  }
 
 
-    </form>
-  </div>
-</div>
-
-
-<?php 
   include '../Partials/footer.php'; 
   include '../Partials/pageEnd.php'; 
 ?> 
