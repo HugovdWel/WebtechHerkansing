@@ -56,7 +56,6 @@ function retrievePostInfo($post_id){
 function postNewPost($user_id, $comment, $post_id){
     global $connection;
     $message = "De comment is succesvol geplaatst!";
-    $comment = "'" . $comment . "'";
     try{
         $sql = ("INSERT INTO Comments([user_id], comment, post_id, [date]) VALUES(:user_id, :comment, :post_id, GETDATE())");
         $preparedQuary = $connection->prepare($sql);
