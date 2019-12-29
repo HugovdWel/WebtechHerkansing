@@ -27,7 +27,6 @@ function retrieveForumPage($page, $postsPerPage){
 
     $loadedPosts = ($page * $postsPerPage - $postsPerPage);
     $loadingPosts = ($page * $postsPerPage);
-    //echo $loadedPosts; echo $loadingPosts;
     
     $sql = ("SELECT TOP (:loadingPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id EXCEPT (SELECT TOP (:loadedPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id)");
     $preparedQuary = $connection->prepare($sql);
@@ -39,6 +38,42 @@ function retrieveForumPage($page, $postsPerPage){
     return $forumData;
 }
 
+function retrievePostInfo($post_id){
+    global $connection;
+
+    $post_id = (int)$post_id;
+    
+    $sql = ("SELECT * FROM ForumPost WHERE post_id = :post_id");
+    $preparedQuary = $connection->prepare($sql);
+    $preparedQuary->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+
+    $preparedQuary->execute();
+
+    $postData = $preparedQuary->fetchAll();
+    return $postData;
+}
+
+function postNewPost($user_id, $comment, $post_id){
+    global $connection;
+    $message = "De comment is succesvol geplaatst!";
+    try{
+        $sql = ("INSERT INTO Comments([user_id], comment, post_id, [date]) VALUES(:user_id, :comment, :post_id, GETDATE())");
+        $preparedQuary = $connection->prepare($sql);
+        echo $user_id . "<br>";
+        echo $comment . "<br>";
+        echo $post_id . "<br>";
+        $preparedQuary->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $preparedQuary->bindParam(':comment', $comment, PDO::PARAM_STR);
+        $preparedQuary->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+        $preparedQuary->execute();
+    }catch(PDOException $Exception){
+        $message = "Er is iets misgegaan in de database, probeer het later opnieuw";
+    }catch(Exception $e){
+        $message = "Er is iets misgegaan, probeer het later opnieuw";
+    }
+
+    return $message;
+}
 
 
 

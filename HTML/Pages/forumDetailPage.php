@@ -7,57 +7,42 @@
 
 <?php 
   include '../../PHP/databaseConnection.php';
-  
-  /*var_dump($forumData);
-  foreach($forumData as $post){
-    echo $post["user_id"];
-  }*/
-
-  if(isset($_GET["paginaNummer"])){
-    $paginaNummer = $_GET["paginaNummer"];}
-  else{
-    $paginaNummer = '1';
+  if (isset($_POST["placeComment"])){
+    postNewPost($_SESSION["User_id"], $_POST["comment"], $_GET["post_id"]);
   }
-  $vorigePagina = $paginaNummer - 1;
-  $volgendePagina = $paginaNummer + 1;
-
-  $forumData = retrieveForumPage($paginaNummer, 10);
-
-?>
-<div class="flex_box flex_justify-center">
-  <div class="limit-size limit-min-size flex_item flex_justify-center standardStyle flex_box flex_justify-center forumContainer">
-    <?php
-      foreach($forumData as $post){
-        echo'<div class="forumPostListing flex_item flex_justify-center">
-        <a href="">';
-            echo $post["postname"];
-          echo'</a>';
-          echo'<p class="align-right">';
-            echo $post["username"];
-          echo'</p>';
-        echo'</div>';
-      }
-    ?>
-  </div>
-
-  <div class="limit-size limit-min-size flex_item flex_justify-center flex_box flex_justify-center">
-    <form action="" method="get">
-      <?php
-        if($vorigePagina > 0){
-          echo '<input type="submit" name="paginaNummer" value="' , $vorigePagina , '">';
-        }
-        echo '<input type="submit" name="paginaNummer" value="' , $paginaNummer , '">';
-        if(count($forumData)>9){
-          echo '<input type="submit" name="paginaNummer" value="' , $volgendePagina , '">';
-        }
-        
-      ?>
-    </form>
-  </div>
-</div>
+  session_destroy();
+  session_start();
+  $_SESSION["User_id"] = 1;
+  if(isset($message)){ 
+    echo $message;
+  }
 
 
-<?php 
+  $post_id = $_GET["post_id"];
+  $postData = retrievePostInfo($post_id);
+
+  echo'<h3 class="textAlignCenter breakWord">' . $postData[0]["postname"] . '</h3>';
+  echo'<div class="flex_box flex_justify-center">';
+    echo'<div class="limit-size limit-min-size flex_item flex_justify-center standardStyle flex_box flex_justify-center forumContainer">';
+      echo'<div class="forumPostDetailPageMain flex_item flex_justify-center">';
+      echo $postData[0]["post"];
+    echo'</div>';
+  echo'</div>';
+
+  if(isset($_SESSION["User_id"])){
+    
+      echo'<div class="limit-size limit-min-size flex_item flex_justify-center flex_box flex_justify-center addPadding">';
+        echo'<form action="" method="post" class="addPadding">';
+          echo'<label for="comment">Laat een bericht achter!:</label><br/>';
+          echo'<textarea name="comment" cols="70" rows="10" placeholder="Een hilarisch bericht." class="addPadding maxWidth"></textarea>';
+          echo'<input type="submit" name="placeComment" value="Plaats comment" class="buttonStyle maxWidth"/>';
+        echo'</form>';
+      echo'</div>';
+    echo'</div>';
+    
+  }
+
+
   include '../Partials/footer.php'; 
   include '../Partials/pageEnd.php'; 
 ?> 
