@@ -59,9 +59,6 @@ function postNewPost($user_id, $comment, $post_id){
     try{
         $sql = ("INSERT INTO Comments([user_id], comment, post_id, [date]) VALUES(:user_id, :comment, :post_id, GETDATE())");
         $preparedQuary = $connection->prepare($sql);
-        echo $user_id . "<br>";
-        echo $comment . "<br>";
-        echo $post_id . "<br>";
         $preparedQuary->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $preparedQuary->bindParam(':comment', $comment, PDO::PARAM_STR);
         $preparedQuary->bindParam(':post_id', $post_id, PDO::PARAM_INT);
@@ -73,6 +70,21 @@ function postNewPost($user_id, $comment, $post_id){
     }
 
     return $message;
+}
+
+function retrievePostComments($post_id){
+    global $connection;
+
+    $post_id = (int)$post_id;
+    
+    $sql = ("SELECT * FROM Comments WHERE post_id = :post_id ORDER BY comment_id DESC");
+    $preparedQuary = $connection->prepare($sql);
+    $preparedQuary->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+
+    $preparedQuary->execute();
+
+    $postComments = $preparedQuary->fetchAll();
+    return $postComments;
 }
 
 

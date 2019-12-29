@@ -69,6 +69,7 @@ p{
 
 .breakWord{
     overflow-wrap: break-word;
+    line-break: loose;
 }
 
 .maxWidth{

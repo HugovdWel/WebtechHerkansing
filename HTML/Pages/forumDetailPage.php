@@ -29,12 +29,25 @@
     echo'</div>';
   echo'</div>';
 
+  $postComments = retrievePostComments($post_id);
+    if(count($postComments) > 0 ){
+    echo'<div class="flex_box flex_justify-center breakWord">';
+      echo'<div class="limit-size limit-min-size flex_item flex_justify-center standardStyle flex_box flex_justify-center forumContainer">';
+        foreach($postComments as $comment){
+          echo'<div class="forumPostListing flex_item flex_justify-center limit-size">';
+
+            echo '<p class="">' . $comment["comment"] . '</p>';
+          echo'</div>';
+        }
+      echo'</div>';
+    echo'</div>';
+  }
+
   if(isset($_SESSION["User_id"])){
-    
       echo'<div class="limit-size limit-min-size flex_item flex_justify-center flex_box flex_justify-center addPadding">';
         echo'<form action="" method="post" class="addPadding">';
           echo'<label for="comment">Laat een bericht achter!:</label><br/>';
-          echo'<textarea name="comment" cols="70" rows="10" placeholder="Een hilarisch bericht." class="addPadding maxWidth"></textarea>';
+          echo'<textarea name="comment" cols="70" rows="10" placeholder="Een hilarisch bericht." maxlength="255" minlength="30" class="addPadding maxWidth"></textarea>';
           echo'<input type="submit" name="placeComment" value="Plaats comment" class="buttonStyle maxWidth"/>';
         echo'</form>';
       echo'</div>';
