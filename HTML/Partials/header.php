@@ -9,8 +9,16 @@
         <h1>EendenVrienden.nl</h1>
     </div>
     <div class="flex_item header-item">
-        Log in of ga dood
+    <?php
+        session_start();
+        if(isset($_SESSION["User"])){
+            echo($_SESSION["User"]); 
+        }
+        else{
+        echo("Log in of ga dood");
+        }
+    ?>
     </div>
 </div>
-<?php
-session_start();
+
+
