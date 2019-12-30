@@ -79,3 +79,17 @@ p{
 a{
     text-decoration: none;
 }
+
+.limit-size{
+    max-width: 80%;
+    max-width: 1000px;
+}
+
+.limit-min-size{
+    min-width: 80%;
+}
+
+p{
+
+    word-break: break-word;
+}

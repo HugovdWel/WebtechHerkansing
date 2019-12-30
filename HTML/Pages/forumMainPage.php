@@ -19,12 +19,13 @@
   $forumData = retrieveForumPage($paginaNummer, 10);
 
 ?>
+<h3 class="textAlignCenter breakWord">Forum</h3>
 <div class="flex_box flex_justify-center">
-  <div class="limit-size limit-min-size flex_item flex_justify-center standardStyle flex_box flex_justify-center forumContainer">
+  <div class="flex_justify-center standardStyle flex_box forumContainer">
 
     <?php
       foreach($forumData as $post){
-        echo'<a class="forumPostListing flex_item flex_justify-center" href="../pages/forumDetailPage.php?post_id=' . $post["post_id"] . '">';
+        echo'<a class="forumPostListing flex_justify-center" href="../pages/forumDetailPage.php?post_id=' . $post["post_id"] . '">';
 
             echo $post["postname"];
 
@@ -37,7 +38,7 @@
     ?>
   </div>
 
-  <div class="limit-size limit-min-size flex_item flex_justify-center flex_box flex_justify-center">
+  <div class="limit-size limit-min-size flex_justify-center flex_box flex_justify-center">
     <form action="" method="get">
       <?php
         if($vorigePagina > 0){
