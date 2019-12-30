@@ -8,17 +8,14 @@
 <?php 
   include '../../PHP/databaseConnection.php';
   if (isset($_POST["placeComment"])){
-    postNewPost($_SESSION["User_id"], $_POST["comment"], $_GET["post_id"]);
+    createNewComment($_SESSION["User_id"], $_POST["comment"], $_GET["post_id"]);
     $redirectLocation = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     echo '<meta http-equiv="refresh" content="0;URL= "$redirectLocation />';
   }
   session_destroy();                                                                                /*DEBUG DEGBUG DEBUG*/
   session_start();                                                                                  /*DEBUG DEGBUG DEBUG*/
   $_SESSION["User_id"] = 1;                                                                         /*DEBUG DEGBUG DEBUG*/
-  if(isset($message)){                                                                              /*werkt niet*/
-    echo $message;                                                                                  /*werkt niet*/
-  }                                                                                                 /*werkt niet*/
-  
+ 
 
   $post_id = $_GET["post_id"];
   $postData = retrievePostInfo($post_id);
@@ -27,7 +24,7 @@
   echo'<div class="flex_box flex_justify-center flex_direction-column">';
     echo'<div class="flex_justify-center standardStyle flex_box flex_justify-center forumContainer">';
       echo'<div class="forumPostDetail flex_justify-center">';
-      echo $postData[0]["post"];
+      echo '<p class="commentSizeLimiter">' . $postData[0]["post"] . '</p>';
     echo'</div>';
   echo'</div>';
 
@@ -53,7 +50,6 @@
         echo'</form>';
       echo'</div>';
     echo'</div>';
-    
   }
 
 
