@@ -3,10 +3,10 @@ session_start();
 include 'databaseConnection.php';
 if(isset($_POST['email'])){
   global $connection;
-  $sql = ("SELECT password, username, [user_id] FROM Users WHERE email = (:email)");
-  $preparedQuary = $connection->prepare($sql);
-  $preparedQuary->execute(array(':email' => $_POST['email']));
-  $data = $preparedQuary->fetch();
+  $sql = ("SELECT [password], username, [user_id] FROM Users WHERE email = (:email)");
+  $preparedQuerry = $connection->prepare($sql);
+  $preparedQuerry->execute(array(':email' => $_POST['email']));
+  $data = $preparedQuerry->fetch();
 
   $checkpassword = $_POST['password'];
   if(password_verify($checkpassword, $data['password'])){   
