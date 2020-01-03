@@ -69,6 +69,7 @@ p{
 
 .breakWord{
     overflow-wrap: break-word;
+    line-break: loose;
 }
 
 .maxWidth{
@@ -77,4 +78,23 @@ p{
 
 a{
     text-decoration: none;
+    color: royalblue;
+}
+
+a:visited{
+    text-decoration: none;
+    color: darkblue;
+}
+
+.limit-size{
+    max-width: 80%;
+    max-width: 1000px;
+}
+
+.limit-min-size{
+    min-width: 80%;
+}
+
+p{
+    word-break: break-word;
 }
