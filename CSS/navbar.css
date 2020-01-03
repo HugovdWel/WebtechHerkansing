@@ -4,7 +4,7 @@
 }
 
 .navbar-item-style{
-    width: 200px;
+    max-width: 90%;
 }
 
 .navbar a:link{
