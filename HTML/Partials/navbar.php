@@ -16,12 +16,12 @@
                Over ons
           </div>
      </a>
-     <a href="../../HTML/pages/videos" class="flex_item addPadding navbar-item-style">
+     <a href="../../HTML/pages/videos.php?videoCatagory=cute" class="flex_item addPadding navbar-item-style">
           <div class="navbar buttonStyle">
                Video's
           </div>
      </a>
-     <a href="../../HTML/pages/kutica" class="flex_item addPadding navbar-item-style">
+     <a href="../../HTML/pages/kutica.php" class="flex_item addPadding navbar-item-style">
           <div class="navbar buttonStyle">
                TBH echt alles op deze opleiding qua taal is fucking hypocriet
           </div>

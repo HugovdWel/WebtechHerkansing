@@ -27,10 +27,11 @@ constraint FK_PICTURE_USER_ID FOREIGN KEY ([user_id]) REFERENCES Users ([user_id
 )
 
 create table Video(
-[user_id]		numeric(12)		not null,
+[user_id]		numeric(12)		not null default(1),
 [name]			varchar(50)		not null,
-link			varchar(255)	not null,
+link			varchar(1000)	not null,
 [description]	varchar(255)	not null,
+category		varchar(255)	not null,
 video_id		numeric(12)		not null identity(1,1)
 constraint PK_VIDEO primary key (video_id)
 constraint FK_VIDEO_USER_ID FOREIGN KEY ([user_id]) REFERENCES Users ([user_id])
@@ -84,9 +85,21 @@ insert into Picture([user_id], [name], [file_name])
 values	(1, 'cute', 'lol.jpg'),
 		(2, 'fun', 'jk.jpg')
 
-insert into Video([user_id], [name], link, [description])
-values  (1, 'Schattig eenden', 'www.koekje.nl', 'moet je kijken'),
-		(2, 'Beste eend', 'www.biscuit.nl', 'moet je kijken!')
+insert into Video([user_id], [name], link, [description], category)
+values  (1, 'Schattig eenden', 'https://www.youtube.com/embed/ylV2Qsf9npw', 'een familie eenden.', 'eendenObserveren'),
+		(2, 'Dit is stoch schandalig!', 'https://www.youtube.com/embed/ip94gSqZDi8', 'Hoe kunnen ze?', 'voortplantingsgedrag'),
+		(1, 'Mensen en eenden', 'https://www.youtube.com/embed/hckQEUS0ZxM', 'Deze mensen hebben een eend gered die vast kwam te zitten door de mensen!', 'mensenEnEenden'),
+		(1, 'Eend in nood!', 'https://www.youtube.com/embed/4oIhiTWexW0', 'gwn een trap maken toch', 'mensenEnEenden'),
+		(1, 'laat niemand ooit beweren dat eenden slim zijn', 'https://www.youtube.com/embed/1DYrUtSXkaM', 'want ze komen om de haverklap vast te zitten', 'cute'),
+		(1, 'de helft van de eenden videos is of eenden die', 'https://www.youtube.com/embed/pF3XOj4oolg', ' vast zitten, of eendenverkrachting', 'voortplantingsgedrag'),
+		(1, 'Alle Eendjes Zwemmen In Het Water', 'https://www.youtube.com/embed/07vkZe_Ew2M', 'Alle Eendjes Zwemmen In Het Water	', 'mensenEnEenden'),
+		(1, 'Eendenmishandeling', 'https://www.youtube.com/embed/aYqvHDhorGw', 'mijn zoekgeschiedenis is helemaal vol met eenden zo', 'mensenEnEenden'),
+		(1, 'Eendenjacht', 'https://www.youtube.com/embed/sDdpTRdrxoM', 'stelletje beulen dit!', 'mensenEnEenden'),
+		(1, 'eenducatief', 'https://www.youtube.com/embed/HVWW_mWutvY', 'hahhahaha snap je hem?', 'educatief'),
+		(1, 'ITS SO FLUFFY I WANT TO DIE', 'https://www.youtube.com/embed/fZEHhLloF0w', 'rolf', 'cute'),
+		(1, 'Eerste bad voor eenden', 'https://www.youtube.com/embed/gGW3yRbYKDM', 'eerste bad voor eenden', 'eductatief'),
+		(1, 'Eenden voeren', 'https://www.youtube.com/embed/dO12Se1skEU', 'lieve diertjes toch?!??!!', 'mensenEnEenden')
+
 		/*
 insert into Recipes([user_id], [name], picture_id, [description])
 values  (1, 'gefrituurde eend', '123.jpg', 'pakt een eend uit de vijver en stop hem in de frituur'),

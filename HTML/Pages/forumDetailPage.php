@@ -12,45 +12,46 @@
     $redirectLocation = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     echo '<meta http-equiv="refresh" content="0;URL= "$redirectLocation />';
   }
-  session_destroy();                                                                                /*DEBUG DEGBUG DEBUG*/
-  session_start();                                                                                  /*DEBUG DEGBUG DEBUG*/
-  $_SESSION["User_id"] = 1;                                                                         /*DEBUG DEGBUG DEBUG*/
- 
 
   $post_id = $_GET["post_id"];
   $postData = retrievePostInfo($post_id);
+  if(count($postData) > 0){
+    
 
-  echo'<h3 class="textAlignCenter breakWord">' . $postData[0]["postname"] . '</h3>';
-  echo'<div class="flex_box flex_justify-center flex_direction-column">';
-    echo'<div class="flex_justify-center standardStyle flex_box flex_justify-center forumContainer">';
-      echo'<div class="forumPostDetail flex_justify-center">';
-      echo '<p class="commentSizeLimiter">' . $postData[0]["post"] . '</p>';
+    echo'<h3 class="textAlignCenter breakWord">' . $postData[0]["postname"] . '</h3>';
+    echo'<div class="flex_box flex_justify-center flex_direction-column">';
+      echo'<div class="flex_justify-center standardStyle flex_box flex_justify-center forumContainer">';
+        echo'<div class="forumPostDetail flex_justify-center">';
+        echo '<p class="commentSizeLimiter">' . $postData[0]["post"] . '</p>';
+      echo'</div>';
     echo'</div>';
-  echo'</div>';
 
-  $postComments = retrievePostComments($post_id);
-    if(count($postComments) > 0 ){
-    echo'<div class="flex_box flex_justify-center forumContainer">';
-      echo'<div class="standardStyle forumContainer ">';
-        foreach($postComments as $comment){
-          echo'<div class="flex_justify-center standardStyle flex_box roundCorners forumPostListing">';
-            echo '<p class="commentSizeLimiter">' . $comment["comment"] . '</p>';
+    $postComments = retrievePostComments($post_id);
+      if(count($postComments) > 0 ){
+      echo'<div class="flex_box flex_justify-center forumContainer">';
+        echo'<div class="standardStyle forumContainer ">';
+          foreach($postComments as $comment){
+            echo'<div class="flex_justify-center standardStyle flex_box roundCorners forumPostListing">';
+              echo '<p class="commentSizeLimiter">' . $comment["comment"] . '</p>';
+            echo'</div>';
+          }
+        echo'</div>';
+      echo'</div>';
+    }
+
+      if(isset($_SESSION["User_id"])){
+          echo'<div class="limit-size limit-min-size flex_justify-center flex_box flex_justify-center addPadding">';
+            echo'<form action="" method="post" class="addPadding">';
+              echo'<label for="comment">Laat een bericht achter!:</label><br/>';
+              echo'<textarea name="comment" cols="70" rows="10" placeholder="Een hilarisch bericht." maxlength="255" minlength="10" class="addPadding maxWidth"></textarea>';
+              echo'<input type="submit" name="placeComment" value="Plaats comment" class="buttonStyle maxWidth"/>';
+            echo'</form>';
           echo'</div>';
-        }
-      echo'</div>';
-    echo'</div>';
-  }
-
-  if(isset($_SESSION["User_id"])){
-      echo'<div class="limit-size limit-min-size flex_justify-center flex_box flex_justify-center addPadding">';
-        echo'<form action="" method="post" class="addPadding">';
-          echo'<label for="comment">Laat een bericht achter!:</label><br/>';
-          echo'<textarea name="comment" cols="70" rows="10" placeholder="Een hilarisch bericht." maxlength="255" minlength="10" class="addPadding maxWidth"></textarea>';
-          echo'<input type="submit" name="placeComment" value="Plaats comment" class="buttonStyle maxWidth"/>';
-        echo'</form>';
-      echo'</div>';
-    echo'</div>';
-  }
+        echo'</div>';
+      }
+    }else{
+      echo'Deze pagina bestaat niet! Als je nog eens probeert deze website kapot te maken zullen wij de internet politie inlichten. ';
+    }
 
 
   include '../Partials/footer.php'; 

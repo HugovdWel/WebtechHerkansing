@@ -24,14 +24,3 @@
 .flex_justify-stretch{
     justify-content: space-between;  
 }
-
-@media only screen and (max-width: 700px){
-    .flex_box{
-        flex-direction: row;
-    }
-
-    .flex_item{
-        width: 100%;
-    }
-    
-}
