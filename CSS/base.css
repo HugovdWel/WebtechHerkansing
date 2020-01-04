@@ -52,14 +52,15 @@ p{
     color: #75787d;
 }
 
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 700px){  /*for better accesability on mobile devices*/
     .buttonStyle{
-        height: 35px;
+        min-height: 35px;
     }
 }
 
 .addPadding{
     padding: 5px;
+    margin: 5px;
 }
 
 .textAlignCenter{

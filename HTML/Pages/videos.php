@@ -23,21 +23,21 @@
 
     echo'<h3 class="textAlignCenter breakWord"> Eenden video\'s </h3>';
 
-    echo'<div class="navbar-style alternativeStyle flex_box flex_justify-center">';
+    echo'<div class="">';
 
-        echo'<form action="" method="get" class="flex_item addPadding navbar-item-style">';
-            echo'<input type="submit" name="videoCatagory" value="alles" class="navbar buttonStyle">';
-            echo'<input type="submit" name="videoCatagory" value="cute" class="navbar buttonStyle">';
-            echo'<input type="submit" name="videoCatagory" value="eendenObserveren" class="navbar buttonStyle">';
-            echo'<input type="submit" name="videoCatagory" value="voortplantingsgedrag" class="navbar buttonStyle">';
-            echo'<input type="submit" name="videoCatagory" value="mensenEnEenden" class="navbar buttonStyle">';
+        echo'<form action="" method="get" class="navbar-style alternativeStyle flex_box flex_justify-center">';
+            echo'<input type="submit" name="videoCatagory" value="alles" class="navbar buttonStyle addPadding navbar-item-style">';
+            echo'<input type="submit" name="videoCatagory" value="cute" class="navbar buttonStyle addPadding navbar-item-style">';
+            echo'<input type="submit" name="videoCatagory" value="eendenObserveren" class="navbar buttonStyle addPadding navbar-item-style">';
+            echo'<input type="submit" name="videoCatagory" value="voortplantingsgedrag" class="navbar buttonStyle addPadding navbar-item-style">';
+            echo'<input type="submit" name="videoCatagory" value="mensenEnEenden" class="navbar buttonStyle addPadding navbar-item-style">';
         echo'</form>';
 
     echo'</div>';
 
     echo'<h3 class="textAlignCenter breakWord"> Categorie: '. $category . ' </h3>';
     
-    echo'<div class="flex_box flex_justify-center flex_direction-column">';
+    echo'<div class="flex_box flex_justify-center flex_direction-column addPadding">';
         echo'<div class="flex_justify-center standardStyle flex_box forumContainer">';
 
             foreach($videos as $video){
