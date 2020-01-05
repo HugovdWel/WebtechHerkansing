@@ -12,9 +12,6 @@
     $redirectLocation = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     echo '<meta http-equiv="refresh" content="0;URL= "$redirectLocation />';
   }
-  session_destroy();                                                                                /*DEBUG DEGBUG DEBUG*/
-  session_start();                                                                                  /*DEBUG DEGBUG DEBUG*/
-  $_SESSION["User_id"] = 1;                                                                         /*DEBUG DEGBUG DEBUG*/
 
   if(isset($_GET["paginaNummer"])){
     $paginaNummer = $_GET["paginaNummer"];}
