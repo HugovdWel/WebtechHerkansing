@@ -15,7 +15,7 @@
             echo($_SESSION["User"]); 
         }
         else{
-            echo("Log in of ga dood");
+            echo('<a href="">Log in of registreer!');
         }
     ?>
     </div>

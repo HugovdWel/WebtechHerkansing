@@ -22,3 +22,20 @@ include '../Partials/pageEnd.php';
     </section><br>
 </div>
 
+<link rel="stylesheet" href="../../CSS/forum.css">
+<?php
+    include '../../PHP/databaseConnection.php';
+    $videos = getVideos(NULL, 5);
+    echo'<div class="flex_box flex_justify-center flex_direction-column addPadding">';
+        echo'<div class="flex_justify-center standardStyle flex_box forumContainer">';
+
+            foreach($videos as $video){
+                echo'<div class="forumPostListing flex_justify-center breakWord flex_box">';
+                    echo'<h4 class="maxWidth textAlignCenter">' . $video["name"] . '</h4>';
+                    echo'<iframe src="' . $video["link"] . '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                    echo '<p class="maxWidth textAlignCenter addPadding">' . $video["description"] . '</p>';
+                echo'</div>';
+            }
+        echo'</div>';
+    echo'</div>';
+?>

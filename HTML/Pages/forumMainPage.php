@@ -62,7 +62,7 @@
         if(isset($_SESSION["User_id"])){
           echo'<div class="limit-size limit-min-size flex_justify-center flex_box flex_justify-center addPadding">';
             echo'<form action="" method="post" class="addPadding">';
-              echo'<label for="comment" class="maxWidth">Begin een nieuwe discussie!:</label><br/>';
+              echo'<label for="comment" class="maxWidth">Begin een nieuwe discussie!</label><br/>';
               echo'<input type="text" name="title" placeholder="Een duidelijke titel." maxlength="50" minlength="5" >';
               echo'<textarea name="comment" cols="70" rows="10" placeholder="Een goed doordacht gespreksonderwerp." maxlength="255" minlength="10" class="addPadding maxWidth"></textarea>';
               echo'<input type="submit" name="placePost" class="buttonStyle maxWidth"/>';
