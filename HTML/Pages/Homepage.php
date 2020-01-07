@@ -1,12 +1,8 @@
 <?php
-$titel = "eendenvrienden.nl";
-include '../Partials/head.php';
-include '../Partials/header.php';
-include '../Partials/navbar.php';
-include '../Partials/footer.php';
-include '../Partials/pageEnd.php';
+    include '../Partials/head.php';
+    include '../Partials/header.php';
+    include '../Partials/navbar.php';
 ?>
-<body>
 
 <div class ="flex_box flex_justify-center textAlignCenter">
     <section class="flex_item">
@@ -38,4 +34,9 @@ include '../Partials/pageEnd.php';
             }
         echo'</div>';
     echo'</div>';
+
+
+
+    include '../Partials/footer.php';
+    include '../Partials/pageEnd.php';
 ?>
