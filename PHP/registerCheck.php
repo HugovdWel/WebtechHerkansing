@@ -39,4 +39,5 @@ if(isset($_POST["user-R"], $_POST["email-R"], $_POST["password-R"], $_POST["repe
 else{
     header("Location: ../HTML/Pages/register.php");
 }
+echo '<meta http-equiv="refresh" content="0;URL=../HTML/Pages/HomePage.php" />';
 ?>

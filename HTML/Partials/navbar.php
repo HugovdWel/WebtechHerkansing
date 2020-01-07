@@ -16,7 +16,7 @@
                Over ons
           </div>
      </a>
-     <a href="../../HTML/pages/videos.php?videoCatagory=cute" class="flex_item addPadding navbar-item-style">
+     <a href="../../HTML/pages/videos.php" class="flex_item addPadding navbar-item-style">
           <div class="navbar buttonStyle">
                Video's
           </div>
