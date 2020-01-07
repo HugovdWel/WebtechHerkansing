@@ -32,7 +32,7 @@ include '../Partials/pageEnd.php';
             foreach($videos as $video){
                 echo'<div class="forumPostListing flex_justify-center breakWord flex_box">';
                     echo'<h4 class="maxWidth textAlignCenter">' . $video["name"] . '</h4>';
-                    echo'<iframe src="' . $video["link"] . '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                    echo'<iframe class="maxWidth" src="' . $video["link"] . '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                     echo '<p class="maxWidth textAlignCenter addPadding">' . $video["description"] . '</p>';
                 echo'</div>';
             }
