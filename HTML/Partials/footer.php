@@ -2,7 +2,7 @@
 <div class="footer standardStyle flex_box flex_justify-stretch">
     
     <div class="flex_item addPadding footer-item">
-        Heb je klachten? stop ze in je gat u bitch.
+        Heb je klachten? Maak een discussie aan op het forum!
     </div>
     <div class="flex_item addPadding footer-item">
         Contact informatie: Himalaya baan 659872

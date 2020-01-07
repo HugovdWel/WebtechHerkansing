@@ -25,7 +25,7 @@
 
     echo'<div class="">';
 
-        echo'<form action="" method="get" class="navbar-style alternativeStyle flex_box flex_justify-center">';
+        echo'<form action="" method="get" class="navbar-style alternativeStyle flex_box flex_justify-center flex_direction-row">';
             echo'<input type="submit" name="videoCatagory" value="alles" class="navbar buttonStyle addPadding navbar-item-style">';
             echo'<input type="submit" name="videoCatagory" value="cute" class="navbar buttonStyle addPadding navbar-item-style">';
             echo'<input type="submit" name="videoCatagory" value="eendenObserveren" class="navbar buttonStyle addPadding navbar-item-style">';
