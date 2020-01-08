@@ -87,11 +87,11 @@ values	(1, 'cute', 'lol.jpg'),
 
 insert into Video([user_id], [name], link, [description], category)
 values  (1, 'Schattig eenden', 'https://www.youtube.com/embed/ylV2Qsf9npw', 'een familie eenden.', 'eendenObserveren'),
-		(2, 'Dit is stoch schandalig!', 'https://www.youtube.com/embed/ip94gSqZDi8', 'Hoe kunnen ze?', 'voortplantingsgedrag'),
+		(2, 'Deze video is niet geschikt voor deze website.', 'https://www.youtube.com/embed/w4ZK6rB4TEo', '*CENSUUR*', 'voortplantingsgedrag'),/*https://www.youtube.com/embed/ip94gSqZDi8 */
 		(1, 'Mensen en eenden', 'https://www.youtube.com/embed/hckQEUS0ZxM', 'Deze mensen hebben een eend gered die vast kwam te zitten door de mensen!', 'mensenEnEenden'),
 		(1, 'Eend in nood!', 'https://www.youtube.com/embed/4oIhiTWexW0', 'gwn een trap maken toch', 'mensenEnEenden'),
 		(1, 'laat niemand ooit beweren dat eenden slim zijn', 'https://www.youtube.com/embed/1DYrUtSXkaM', 'want ze komen om de haverklap vast te zitten', 'cute'),
-		(1, 'de helft van de eenden videos is of eenden die', 'https://www.youtube.com/embed/pF3XOj4oolg', ' vast zitten, of eendenverkrachting', 'voortplantingsgedrag'),
+		(1, 'de helft van de eenden videos is of eenden die', 'https://www.youtube.com/embed/w4ZK6rB4TEo', ' vast zitten, of eendenverkrachting', 'voortplantingsgedrag'),/*https://www.youtube.com/embed/pF3XOj4oolg */
 		(1, 'Alle Eendjes Zwemmen In Het Water', 'https://www.youtube.com/embed/07vkZe_Ew2M', 'Alle Eendjes Zwemmen In Het Water	', 'mensenEnEenden'),
 		(1, 'Eendenmishandeling', 'https://www.youtube.com/embed/aYqvHDhorGw', 'mijn zoekgeschiedenis is helemaal vol met eenden zo', 'mensenEnEenden'),
 		(1, 'Eendenjacht', 'https://www.youtube.com/embed/sDdpTRdrxoM', 'stelletje beulen dit!', 'mensenEnEenden'),
