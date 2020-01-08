@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="../../CSS/forum.css">
 
 <?php 
-  include '../../PHP/databaseConnection.php';
+  include '../../PHP/forumDatabaseFunctions.php';
   if (isset($_POST["placePost"])){
     createNewPost($_SESSION["User_id"], $_POST["comment"], $_POST["title"]);
     $redirectLocation = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -26,11 +26,11 @@
 ?>
 <h3 class="textAlignCenter breakWord">Forum</h3>
 <div class="flex_box flex_justify-center">
-  <div class="flex_justify-center standardStyle flex_box forumContainer">
+  <div class="flex_justify-center flex_box forumContainer greenAccent">
 
     <?php
       foreach($forumData as $post){
-        echo'<a class="forumPostListing flex_justify-center breakWord" href="../pages/forumDetailPage.php?post_id=' . $post["post_id"] . '">';
+        echo'<a class="forumPostListing standardStyle flex_justify-center breakWord" href="../pages/forumDetailPage.php?post_id=' . $post["post_id"] . '">';
 
             echo $post["postname"];
 
@@ -60,8 +60,8 @@
           echo'<div class="limit-size limit-min-size flex_justify-center flex_box flex_justify-center addPadding">';
             echo'<form action="" method="post" class="addPadding">';
               echo'<label for="comment" class="maxWidth addPadding">Begin een nieuwe discussie!</label><br/>';
-              echo'<input type="text" name="title" placeholder="Een duidelijke titel." maxlength="50" minlength="5" class="addPadding">';
-              echo'<textarea name="comment" cols="70" rows="10" placeholder="Een goed doordacht gespreksonderwerp." maxlength="255" minlength="10" class="addPadding maxWidth"></textarea>';
+              echo'<input type="text" name="title" placeholder="Een duidelijke titel." maxlength="50" minlength="3" class="addPadding">';
+              echo'<textarea name="comment" cols="70" rows="6" placeholder="Een goed doordacht gespreksonderwerp." maxlength="255" minlength="0" class="addPadding maxWidth"></textarea>';
               echo'<input type="submit" name="placePost" class="buttonStyle maxWidth addPadding"/>';
             echo'</form>';
           echo'</div>';
@@ -70,5 +70,4 @@
     
   }
   include '../Partials/footer.php'; 
-  include '../Partials/pageEnd.php'; 
 ?> 

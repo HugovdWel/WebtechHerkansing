@@ -54,8 +54,8 @@ constraint FK_RECIPES_USER_ID FOREIGN KEY ([user_id]) REFERENCES Users ([user_id
 create table ForumPost(
 [user_id]	numeric(12)		not null,
 postname	varchar(50)		not null,
-post		varchar(255)	not null,
-[date]		date			not null,
+post		varchar(255)	not null default ' ',
+[date]		date			null default GETDATE(),
 post_id		numeric(12)		not null identity(1,1),
 constraint PK_FORUMPOST primary key (post_id),
 constraint FK_FORUMPOST_USER_ID FOREIGN KEY ([user_id]) REFERENCES Users ([user_id])
@@ -68,7 +68,7 @@ create table Comments(
 comment		varchar(255)	not null,
 post_id		numeric(12)		not null,
 comment_id  numeric(12)		not null identity(1,1),
-[date]		date			not null,
+[date]		date			null default GETDATE(),
 constraint PK_COMMENTS primary key (comment_id),
 constraint FK_COMMENTS_USER_ID FOREIGN KEY ([user_id]) REFERENCES Users ([user_id]),
 constraint FK_COMMENTS_POST_ID FOREIGN KEY (post_id) REFERENCES ForumPost (post_id)

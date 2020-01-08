@@ -1,4 +1,4 @@
-<?PHP
+<?php
 session_start();
 include 'databaseConnection.php';
 if(isset($_POST['email'])){

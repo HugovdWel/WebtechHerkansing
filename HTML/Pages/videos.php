@@ -3,11 +3,10 @@
     include '../Partials/header.php'; 
     include '../Partials/navbar.php'; 
 ?>
-<link rel="stylesheet" href="../../CSS/videos.css">
 <link rel="stylesheet" href="../../CSS/forum.css">
 
 <?php 
-    include '../../PHP/databaseConnection.php';
+    include '../../PHP/videoDatabaseFunctions.php';
     if(isset($_GET["videoCatagory"])){
         if($_GET["videoCatagory"] == "alles"){
             unset($_GET);
@@ -52,5 +51,4 @@
 
 
     include '../Partials/footer.php'; 
-    include '../Partials/pageEnd.php'; 
 ?> 
