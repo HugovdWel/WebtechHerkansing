@@ -46,27 +46,33 @@
   <div class="limit-size limit-min-size flex_justify-center flex_box flex_justify-center">
     <form action="" method="get">
       <?php
+        if(count($forumData)== 0 && $paginaNummer != 1){
+          echo '<meta http-equiv="refresh" content="0;URL= forumMainPage.php?paginaNummer=1" />';
+        }
         if($vorigePagina > 0){
           echo '<input type="submit" name="paginaNummer" value="' , $vorigePagina , '">';
+          echo '<input type="submit" name="paginaNummer" value="' , $paginaNummer , '">';
         }
-        echo '<input type="submit" name="paginaNummer" value="' , $paginaNummer , '">';
-        if(count($forumData)>9){
+        if(count(retrieveForumPage(($paginaNummer + 1), 10))>0){
+          echo '<input type="submit" name="paginaNummer" value="' , $paginaNummer , '">';
           echo '<input type="submit" name="paginaNummer" value="' , $volgendePagina , '">';
 
         }
         echo'</form>';
         echo'</div>';
         if(isset($_SESSION["User_id"])){
-          echo'<div class="limit-size limit-min-size flex_justify-center flex_box flex_justify-center addPadding">';
-            echo'<form action="" method="post" class="addPadding">';
-              echo'<label for="comment" class="maxWidth addPadding">Begin een nieuwe discussie!</label><br/>';
-              echo'<input type="text" name="title" placeholder="Een duidelijke titel." maxlength="50" minlength="3" class="addPadding">';
-              echo'<textarea name="comment" cols="70" rows="6" placeholder="Een goed doordacht gespreksonderwerp." maxlength="255" minlength="0" class="addPadding maxWidth"></textarea>';
-              echo'<input type="submit" name="placePost" class="buttonStyle maxWidth addPadding"/>';
-            echo'</form>';
-          echo'</div>';
-        echo'</div>';
-      echo'</div>';
+          ?>
+          <div class="limit-size limit-min-size flex_justify-center flex_box flex_justify-center addPadding">
+            <form action="" method="post" class="addPadding">
+              <label for="comment" class="maxWidth addPadding">Begin een nieuwe discussie!</label><br/>
+              <input type="text" name="title" placeholder="Een duidelijke titel." maxlength="50" minlength="3" class="addPadding">
+              <textarea name="comment" cols="70" rows="6" placeholder="Een goed doordacht gespreksonderwerp." maxlength="255" minlength="0" class="addPadding maxWidth"></textarea>
+              <input type="submit" name="placePost" class="buttonStyle maxWidth addPadding"/>
+            </form>
+          </div>
+        </div>
+      </div>
+      <?php
     
   }
   include '../Partials/footer.php'; 

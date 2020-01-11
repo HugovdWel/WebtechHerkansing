@@ -5,14 +5,15 @@
     function retrieveForumPage($page, $postsPerPage){
         global $connection;
 
-        $loadedPosts = ($page * $postsPerPage - $postsPerPage);
+        $loadedPosts = (($page * $postsPerPage) - $postsPerPage);
         $loadingPosts = ($page * $postsPerPage);
-        
-        $sql = ("SELECT TOP (:loadingPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id EXCEPT (SELECT TOP (:loadedPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id)");
+
+        $sql = (" SELECT TOP (:loadingPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id EXCEPT (SELECT TOP (:loadedPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id) ORDER BY post_id DESC ");
         $preparedQuary = $connection->prepare($sql);
         $preparedQuary->bindParam(':loadedPosts', $loadedPosts, PDO::PARAM_INT);
         $preparedQuary->bindParam(':loadingPosts', $loadingPosts, PDO::PARAM_INT);
         $preparedQuary->execute();
+        echo 'loaded ' . $loadedPosts . ' - - - loading ' . $loadingPosts . ' query: ' . var_dump($preparedQuary);
 
         $forumData = $preparedQuary->fetchAll();
         return $forumData;
