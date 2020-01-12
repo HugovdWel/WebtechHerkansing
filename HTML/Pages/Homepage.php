@@ -18,7 +18,6 @@
     <img src="../../images/EEND.png">
 </div>
 
-<link rel="stylesheet" href="../../CSS/forum.css">
 <?php
     include '../../PHP/videoDatabaseFunctions.php';
     $videos = getVideos(NULL, 5);

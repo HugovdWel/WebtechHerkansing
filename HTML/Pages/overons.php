@@ -3,7 +3,6 @@
     include '../Partials/header.php';
     include '../Partials/navbar.php';
 ?>
-<link rel="stylesheet" href="../../CSS/forum.css">
 
 <div class="flex_box flex_justify-center flex_direction-column addPadding forumPostListing breakWord standardStyle flex_box forumContainer">
     <h2>De Eend</h2> 

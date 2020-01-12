@@ -3,7 +3,6 @@
     include '../Partials/header.php'; 
     include '../Partials/navbar.php'; 
 ?>
-<link rel="stylesheet" href="../../CSS/forum.css">
 
 <?php 
     include '../../PHP/videoDatabaseFunctions.php';
