@@ -13,7 +13,6 @@
         $preparedQuary->bindParam(':loadedPosts', $loadedPosts, PDO::PARAM_INT);
         $preparedQuary->bindParam(':loadingPosts', $loadingPosts, PDO::PARAM_INT);
         $preparedQuary->execute();
-        echo 'loaded ' . $loadedPosts . ' - - - loading ' . $loadingPosts . ' query: ' . var_dump($preparedQuary);
 
         $forumData = $preparedQuary->fetchAll();
         return $forumData;
