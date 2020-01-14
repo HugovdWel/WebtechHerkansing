@@ -25,17 +25,6 @@ h1{
     align-self: center;
 }
 
-button{
-    background-color: unset;
-    border: 0px;
-    padding: 10px;
-}
-
-input{
-    background-color: unset;
-    border: 0px; 
-}
-
 p{
     margin: 0;
     padding: 0;
@@ -146,7 +135,6 @@ a.textColorLinks{
     width: 95%;
     max-width: 600px;
     border-radius: 25px;
-    margin: 10px;
 }
 
 .roundCorners{
@@ -179,6 +167,11 @@ a.textColorLinks{
 }
 .greenAccent{
     background-color: green;
+}
+
+.maxWidth40Percent{
+    max-width: 45%;
+    min-width: unset;
 }
 
 
