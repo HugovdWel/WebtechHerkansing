@@ -21,7 +21,7 @@
 <?php
     include '../../PHP/videoDatabaseFunctions.php';
     $videos = getVideos(NULL, 5);
-    echo'<div class="flex_box flex_justify-center  addPadding">';
+    echo'<div class="flex_box flex_justify-center addPadding">';
         echo'<div class="flex_justify-center standardStyle flex_box forumContainer">';
 
             foreach($videos as $video){

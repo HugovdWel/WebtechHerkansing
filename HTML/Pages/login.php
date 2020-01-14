@@ -11,7 +11,7 @@
     <form action="../../PHP/loginCheck.php" method="post">
         <input type="email" placeholder="Email adress" name="email" id="email" required class="maxWidth addPadding">
         <input type="password" placeholder="Wachtwoord" name="password" required class="maxWidth addPadding">
-        <button type="submit" value="login">Login</button>
+        <button type="submit" value="login" class="buttonStyle">Login</button>
     </form>
 </div>
 

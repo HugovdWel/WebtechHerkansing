@@ -22,7 +22,7 @@
         if(isset($_SESSION["User"])){
             echo'<form action="" method="post" class="navbar-style standaard_style flex_box flex_justify-center">';
                 echo '<p class="addPadding">welkom ' . $_SESSION["User"] . '</p>';
-                echo '<input type="submit" name="logout" value="log uit" class="addPadding">';
+                echo '<input type="submit" name="logout" value="log uit" class="buttonStyle">';
             echo'</form>';
         }
         else{
