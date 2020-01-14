@@ -32,9 +32,9 @@
       echo'<div class="flex_box flex_justify-center forumContainer">';
         echo'<div class="standardStyle forumContainer blueAccent">';
           foreach($postComments as $comment){
-            echo'<div class="standardStyle flex_box roundCorners forumPostListing">';
+            echo'<div class="standardStyle roundCorners forumPostListing">';
               echo'<p class="commentSizeLimiter">' . $comment["comment"] . '</p>';
-              echo'<p class="username">';
+              echo'<p class="username align-right">';
                 echo $comment["username"];
               echo'</p>';
             echo'</div>';
