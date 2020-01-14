@@ -30,16 +30,15 @@
     include '../../PHP/videoDatabaseFunctions.php';
     $videos = getVideos(NULL, 5);
     echo'<div class="flex_box flex_justify-center flex_direction-row">';
-        echo'<div class="flex_justify-center standardStyle flex_box forumContainer flex_direction-row">';
-
-            foreach($videos as $video){
-                echo'<div class="forumPostListing flex_justify-center breakWord flex_box">';
+        foreach($videos as $video){
+            echo'<div class="flex_justify-center standardStyle flex_box forumContainer flex_box flex_direction-row max-width">';
+                echo'<div class="forumPostListing breakWord">';
                     echo'<h4 class="maxWidth textAlignCenter">' . $video["name"] . '</h4>';
                     echo'<iframe class="maxWidth" src="' . $video["link"] . '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                     echo '<p class="maxWidth textAlignCenter addPadding">' . $video["description"] . '</p>';
                 echo'</div>';
-            }
-        echo'</div>';
+            echo'</div>';
+        }
     echo'</div>';
 
 
