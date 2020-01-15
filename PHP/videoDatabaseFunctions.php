@@ -6,18 +6,18 @@
         global $connection;
         if($category == NULL){
             $sql = ("SELECT TOP (:loadingVideos) * FROM VIDEO ORDER BY video_id DESC");
-            $preparedQuary = $connection->prepare($sql);
-            $preparedQuary->bindParam(':loadingVideos', $amount, PDO::PARAM_INT);
+            $preparedQuery = $connection->prepare($sql);
+            $preparedQuery->bindParam(':loadingVideos', $amount, PDO::PARAM_INT);
         }else{
             $sql = ("SELECT TOP (:loadingVideos) * FROM VIDEO WHERE CATEGORY = :category ORDER BY video_id DESC");
-            $preparedQuary = $connection->prepare($sql);
-            $preparedQuary->bindParam(':category', $category, PDO::PARAM_STR);
-            $preparedQuary->bindParam(':loadingVideos', $amount, PDO::PARAM_INT);
+            $preparedQuery = $connection->prepare($sql);
+            $preparedQuery->bindParam(':category', $category, PDO::PARAM_STR);
+            $preparedQuery->bindParam(':loadingVideos', $amount, PDO::PARAM_INT);
         }
 
-        $preparedQuary->execute();
+        $preparedQuery->execute();
 
-        $videos = $preparedQuary->fetchAll();
+        $videos = $preparedQuery->fetchAll();
         return $videos;
     }
 

@@ -79,8 +79,8 @@ GO
 
 -----------------------------------------------------------------------------------------
 insert into Users(username, [password], email)
-values  ('hugo','$2y$10$AChoygtdi.Esgck8KDxFnOjy5YqcsdIXQm03BrG6QP9.okhng9YsW', 'hugo00.nogwat@gmail.com'), /*qwerty123*/
-		('daniël','$2y$10$MnwEtE/YbW.tTVft3AkQFellltTfhbQhXErmnDEtI9P/1CNBDwlo2', 'dj.vervloed@gmail.com') /*qwerty1234*/
+values  ('hugo','$2y$10$AChoygtdi.Esgck8KDxFnOjy5YqcsdIXQm03BrG6QP9.okhng9YsW', 'poep@gmail.com'), /*qwerty123*/
+		('daniël','$2y$10$MnwEtE/YbW.tTVft3AkQFellltTfhbQhXErmnDEtI9P/1CNBDwlo2', 'lol@gmail.com') /*qwerty1234*/
 insert into Picture([user_id], [name], [file_name])
 values	(1, 'cute', 'lol.jpg'),
 		(2, 'fun', 'jk.jpg')

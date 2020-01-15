@@ -9,12 +9,12 @@
         $loadingPosts = ($page * $postsPerPage);
 
         $sql = (" SELECT TOP (:loadingPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id EXCEPT (SELECT TOP (:loadedPosts) * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id) ORDER BY post_id DESC ");
-        $preparedQuary = $connection->prepare($sql);
-        $preparedQuary->bindParam(':loadedPosts', $loadedPosts, PDO::PARAM_INT);
-        $preparedQuary->bindParam(':loadingPosts', $loadingPosts, PDO::PARAM_INT);
-        $preparedQuary->execute();
+        $preparedQuery = $connection->prepare($sql);
+        $preparedQuery->bindParam(':loadedPosts', $loadedPosts, PDO::PARAM_INT);
+        $preparedQuery->bindParam(':loadingPosts', $loadingPosts, PDO::PARAM_INT);
+        $preparedQuery->execute();
 
-        $forumData = $preparedQuary->fetchAll();
+        $forumData = $preparedQuery->fetchAll();
         return $forumData;
     }
 
@@ -24,12 +24,12 @@
         $post_id = (int)$post_id;
         
         $sql = ("SELECT * FROM ForumPost f INNER JOIN Users u ON f.user_id = u.user_id WHERE post_id = :post_id");
-        $preparedQuary = $connection->prepare($sql);
-        $preparedQuary->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+        $preparedQuery = $connection->prepare($sql);
+        $preparedQuery->bindParam(':post_id', $post_id, PDO::PARAM_INT);
 
-        $preparedQuary->execute();
+        $preparedQuery->execute();
 
-        $postData = $preparedQuary->fetchAll();
+        $postData = $preparedQuery->fetchAll();
         return $postData;
     }
 
@@ -39,11 +39,11 @@
         if(strlen($comment) > 2 && strlen($comment) < 256){
             try{
                 $sql = ("INSERT INTO Comments([user_id], comment, post_id) VALUES(:user_id, :comment, :post_id)");
-                $preparedQuary = $connection->prepare($sql);
-                $preparedQuary->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-                $preparedQuary->bindParam(':comment', $comment, PDO::PARAM_STR);
-                $preparedQuary->bindParam(':post_id', $post_id, PDO::PARAM_INT);
-                $preparedQuary->execute();
+                $preparedQuery = $connection->prepare($sql);
+                $preparedQuery->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+                $preparedQuery->bindParam(':comment', $comment, PDO::PARAM_STR);
+                $preparedQuery->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+                $preparedQuery->execute();
             }catch(PDOException $Exception){
                 $message = "Er is iets misgegaan in de database, probeer het later opnieuw";
             }catch(Exception $e){
@@ -61,11 +61,11 @@
         if(strlen($postContent) < 256 && strlen($title) > 2 && strlen($title) < 51){
             try{
                 $sql = ("INSERT INTO ForumPost (user_id, postname, post) VALUES(:user_id, :title, :postContent)");
-                $preparedQuary = $connection->prepare($sql);
-                $preparedQuary->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-                $preparedQuary->bindParam(':postContent', $postContent, PDO::PARAM_STR);
-                $preparedQuary->bindParam(':title', $title, PDO::PARAM_STR);
-                $preparedQuary->execute();
+                $preparedQuery = $connection->prepare($sql);
+                $preparedQuery->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+                $preparedQuery->bindParam(':postContent', $postContent, PDO::PARAM_STR);
+                $preparedQuery->bindParam(':title', $title, PDO::PARAM_STR);
+                $preparedQuery->execute();
             }catch(PDOException $Exception){
                 $message = "Er is iets misgegaan in de database, probeer het later opnieuw";
             }catch(Exception $e){
@@ -83,12 +83,12 @@
         $post_id = (int)$post_id;
         
         $sql = ("SELECT * FROM Comments c INNER JOIN Users u ON c.user_id = u.user_id WHERE post_id = :post_id ORDER BY comment_id DESC ");
-        $preparedQuary = $connection->prepare($sql);
-        $preparedQuary->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+        $preparedQuery = $connection->prepare($sql);
+        $preparedQuery->bindParam(':post_id', $post_id, PDO::PARAM_INT);
 
-        $preparedQuary->execute();
+        $preparedQuery->execute();
 
-        $postComments = $preparedQuary->fetchAll();
+        $postComments = $preparedQuery->fetchAll();
         return $postComments;
     }
 
